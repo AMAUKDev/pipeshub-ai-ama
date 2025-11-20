@@ -5,7 +5,9 @@ docker compose -f docker-compose.dev.yml -p pipeshub-ai up --build -d
 docker compose -f docker-compose.dev.yml -p pipeshub-ai down
 
 # 2. Rebuild and restart Docker
+# Rebuild from scratch (clears cache)
 docker compose -f docker-compose.dev.yml -p pipeshub-ai down
+docker builder prune -a -f
 docker compose -f docker-compose.dev.yml -p pipeshub-ai up --build -d
 
 # 3. Check logs

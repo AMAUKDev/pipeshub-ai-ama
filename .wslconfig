@@ -1,0 +1,30 @@
+[wsl2]
+# CPU Configuration
+# 8 cores available, allocate 7 to WSL2 (leave 1 for Windows)
+processors=7
+
+# Memory Configuration
+# 64GB available, allocate 48GB to WSL2 (leave 16GB for Windows)
+memory=48GB
+
+# Swap Configuration
+# Allocate 4GB swap for overflow
+swap=4GB
+
+# Virtual Disk Configuration
+# Expand virtual disk to 256GB for large datasets
+localhostForwarding=true
+
+# Performance Optimizations
+pageReporting=true
+sparseVhd=true
+
+# Kernel Configuration
+kernelCommandLine=
+
+# Interop Settings
+interopEnabled=true
+appendWindowsPath=true
+
+# Systemd Support (if using newer WSL2)
+systemd=true

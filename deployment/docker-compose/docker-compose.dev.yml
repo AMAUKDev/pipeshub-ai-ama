@@ -21,8 +21,12 @@ services:
     deploy:
       resources:
         limits:
-          memory: 10G
-    shm_size: 2gb
+          memory: 32G
+          cpus: '7'  # Use 7 of 8 cores (leave 1 for system)
+        reservations:
+          cpus: '6'  # Reserve 6 cores
+          memory: 24G
+    shm_size: 8gb  # Increased for heavy document processing
     init: true
     environment:
       # Core environment settings
