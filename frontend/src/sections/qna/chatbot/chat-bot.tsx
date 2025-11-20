@@ -50,6 +50,7 @@ import WelcomeMessage from './components/welcome-message';
 import { StreamingContext } from './components/chat-message';
 import { processStreamingContentLegacy } from './utils/styles/content-processing';
 import ImageHighlighter from './components/image-highlighter';
+import { HierarchicalKBResource, FolderExpansionState } from './resources';
 
 const DRAWER_WIDTH = 300;
 
@@ -621,6 +622,91 @@ const ChatInterface = () => {
     };
     loadKBs();
   }, []);
+
+  // State for hierarchical KB resources and folder expansion
+  const [hierarchicalKBs, setHierarchicalKBs] = useState<HierarchicalKBResource[]>([]);
+  const [folderExpansionState, setFolderExpansionState] = useState<FolderExpansionState>({});
+  const [isLoadingFolders, setIsLoadingFolders] = useState(false);
+
+  // Build hierarchical KB structure from flat list
+  useEffect(() => {
+    const buildHierarchy = async () => {
+      if (!allKBs || allKBs.length === 0) {
+        setHierarchicalKBs([]);
+        return;
+      }
+
+      const hierarchical: HierarchicalKBResource[] = allKBs.map((kb) => ({
+        id: kb.id,
+        name: kb.name,
+        type: 'kb',
+        rootFolderId: kb.id,
+        children: [],
+      }));
+
+      setHierarchicalKBs(hierarchical);
+    };
+
+    buildHierarchy();
+  }, [allKBs]);
+
+  // Load folder contents when a KB is expanded
+  const handleFolderExpand = useCallback(
+    async (resourceId: string) => {
+      const isCurrentlyExpanded = folderExpansionState[resourceId];
+
+      if (isCurrentlyExpanded) {
+        // Collapse
+        setFolderExpansionState((prev) => ({
+          ...prev,
+          [resourceId]: false,
+        }));
+        return;
+      }
+
+      // Expand - load folder contents if not already loaded
+      setFolderExpansionState((prev) => ({
+        ...prev,
+        [resourceId]: true,
+      }));
+
+      // Check if this is a KB (top-level) or folder
+      const isKB = hierarchicalKBs.some((kb) => kb.id === resourceId);
+
+      if (isKB) {
+        // Load root folder contents for this KB
+        const kb = hierarchicalKBs.find((k) => k.id === resourceId);
+        if (kb && kb.rootFolderId && !kb.children?.length) {
+          try {
+            setIsLoadingFolders(true);
+            const contents = await KnowledgeBaseAPI.getFolderContents(kb.id, kb.rootFolderId);
+
+            if (contents.folders && contents.folders.length > 0) {
+              const folderResources: HierarchicalKBResource[] = contents.folders.map((folder) => ({
+                id: folder.id,
+                name: folder.name,
+                type: 'folder',
+                parentId: kb.id,
+                children: [],
+              }));
+
+              setHierarchicalKBs((prev) =>
+                prev.map((k) =>
+                  k.id === kb.id ? { ...k, children: folderResources } : k
+                )
+              );
+            }
+          } catch (error) {
+            console.error('Failed to load folder contents:', error);
+          } finally {
+            setIsLoadingFolders(false);
+          }
+        }
+      }
+    },
+    [folderExpansionState, hierarchicalKBs]
+  );
+=======
 
   const [updateTrigger, setUpdateTrigger] = useState(0);
   const forceUpdate = useCallback(() => setUpdateTrigger((prev) => prev + 1), []);
