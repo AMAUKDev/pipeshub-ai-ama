@@ -55,7 +55,7 @@ export class KnowledgeBaseAPI {
           console.error('Failed to decode UTF-8 filename', e);
         }
       }
-      
+
       // Fallback to basic filename="..." format if filename* not found
       if (!filename) {
         const filenameMatch = contentDisposition.match(/filename="?([^";\n]*)"?/i);
@@ -251,10 +251,33 @@ export class KnowledgeBaseAPI {
     params?: any
   ): Promise<FolderContents> {
     const url = folderId ? `${API_BASE}/${kbId}/folder/${folderId}` : `${API_BASE}/${kbId}/records`;
-    const debugUrl_ALlRecords = `${API_BASE}/records`;
     const response = await axios.get(url, { params });
     if (!response.data) throw new Error('Failed to fetch folder contents');
-    return response.data;
+
+    // Normalize response to ensure it has the expected structure
+    const data = response.data;
+    const normalized: FolderContents = {
+      folders: data.folders || [],
+      records: data.records || [],
+      pagination: data.pagination || {
+        page: 1,
+        limit: 20,
+        totalItems: (data.folders?.length || 0) + (data.records?.length || 0),
+        totalPages: 1,
+        hasNext: false,
+        hasPrev: false,
+      },
+      userPermission: data.userPermission || {
+        role: 'READER',
+        canUpload: false,
+        canCreateFolders: false,
+        canEdit: false,
+        canDelete: false,
+      },
+    };
+
+    console.log('[API] getFolderContents normalized response:', { url, original: data, normalized });
+    return normalized;
   }
 
   // Record operations

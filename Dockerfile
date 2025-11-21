@@ -62,13 +62,15 @@ RUN npm run build
 
 # Stage 4: Frontend build
 FROM base AS frontend-build
+ARG FRONTEND_BUILD_ID=default
 WORKDIR /app/frontend
 RUN mkdir -p packages
 COPY frontend/package*.json ./
 COPY frontend/packages ./packages/
 RUN npm config set legacy-peer-deps true && npm install
 COPY frontend/ ./
-RUN npm run build
+# Frontend build - invalidated by changing FRONTEND_BUILD_ID build arg
+RUN echo "Frontend build ID: $FRONTEND_BUILD_ID" && npm run build
 
 # Stage 5: Final runtime
 FROM python-deps AS runtime

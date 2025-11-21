@@ -476,11 +476,20 @@ const ChatBotFilters = ({
 
   const loadChildren = useCallback(async (node: TreeNode) => {
     if (node.type === 'file') return; // leaf
-    if (node.isLoaded) return;
+    if (node.isLoaded) {
+      console.log('[KB Tree] Node already loaded, skipping:', { nodeId: node.id, nodeType: node.type });
+      return;
+    }
     try {
+      console.log('[KB Tree] Loading children for node:', { nodeId: node.id, nodeType: node.type, kbId: node.kbId });
+
       // root KB uses rootFolderId == kbId as seen in code-path elsewhere
       const folderId = node.type === 'kb' ? (node.kbId) : node.id;
+      console.log('[KB Tree] Calling getFolderContents with:', { kbId: node.kbId, folderId });
+
       const resp = await KnowledgeBaseAPI.getFolderContents(node.kbId, folderId);
+      console.log('[KB Tree] getFolderContents response:', resp);
+
       const folders = (resp.folders || []).map((f: any) => ({
         id: f.id,
         name: f.name || f.recordName || 'Folder',
@@ -498,11 +507,18 @@ const ChatBotFilters = ({
         parentFolderId: node.type === 'kb' ? null : node.id,
       }));
 
+      console.log('[KB Tree] Parsed children:', { folderCount: folders.length, fileCount: files.length, folders, files });
+
       setKbTrees((prev) => {
         const clone = { ...prev };
         const current = clone[node.kbId];
+        console.log('[KB Tree] Current tree before update:', current);
+
         const attach = (target: TreeNode): boolean => {
+          console.log('[KB Tree] Attempting to attach to:', { targetId: target.id, targetType: target.type, nodeId: node.id, nodeType: node.type });
+
           if (target.type === node.type && target.id === node.id) {
+            console.log('[KB Tree] Found matching node, attaching children');
             target.children = [...folders, ...files];
             target.isLoaded = true;
             return true;
@@ -514,11 +530,16 @@ const ChatBotFilters = ({
           }
           return false;
         };
-        if (current) attach(current);
+        if (current) {
+          const attached = attach(current);
+          console.log('[KB Tree] Attachment result:', { attached, updatedTree: clone[node.kbId] });
+        } else {
+          console.log('[KB Tree] No current tree found for kbId:', node.kbId);
+        }
         return clone;
       });
     } catch (e) {
-      // swallow
+      console.error('[KB Tree] Error loading children:', e);
     }
   }, []);
 

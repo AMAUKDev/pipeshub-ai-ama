@@ -3,6 +3,7 @@ import type { BoxProps } from '@mui/material/Box';
 import { useId, forwardRef } from 'react';
 
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 import { useTheme } from '@mui/material/styles';
 
 import { RouterLink } from 'src/routes/components';
@@ -195,25 +196,49 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
       }),
     };
 
-    return (
-      <Box
-        ref={ref}
-        component={RouterLink}
-        href={href}
-        className={logoClasses.root.concat(className ? ` ${className}` : '')}
-        aria-label="Logo"
-        sx={{
-          ...baseSize,
-          flexShrink: 0,
-          display: 'inline-flex',
-          verticalAlign: 'middle',
-          ...(disableLink && { pointerEvents: 'none' }),
-          ...sx,
-        }}
-        {...other}
-      >
-        {isSingle ? singleLogo : fullLogo}
+    // Get build timestamp from environment or use current time
+    const buildTime = import.meta.env.VITE_BUILD_TIME || new Date().toISOString();
+    const buildDate = new Date(buildTime);
+    const formattedBuildTime = buildDate.toLocaleString('en-US', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    });
+
+    const tooltipTitle = (
+      <Box sx={{ fontSize: '0.875rem', fontWeight: 500 }}>
+        <div>🔨 Built: {formattedBuildTime}</div>
+        <div style={{ fontSize: '0.75rem', marginTop: '4px', opacity: 0.8 }}>
+          Hover over logo to see build info
+        </div>
       </Box>
+    );
+
+    return (
+      <Tooltip title={tooltipTitle} arrow placement="right">
+        <Box
+          ref={ref}
+          component={RouterLink}
+          href={href}
+          className={logoClasses.root.concat(className ? ` ${className}` : '')}
+          aria-label="Logo"
+          sx={{
+            ...baseSize,
+            flexShrink: 0,
+            display: 'inline-flex',
+            verticalAlign: 'middle',
+            ...(disableLink && { pointerEvents: 'none' }),
+            ...sx,
+          }}
+          {...other}
+        >
+          {isSingle ? singleLogo : fullLogo}
+        </Box>
+      </Tooltip>
     );
   }
 );

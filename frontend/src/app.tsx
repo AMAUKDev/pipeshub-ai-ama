@@ -3,6 +3,7 @@ import 'src/global.css';
 // ----------------------------------------------------------------------
 
 import { Provider } from 'react-redux';
+import { Box, Typography } from '@mui/material';
 
 import { Router } from 'src/routes/sections';
 
@@ -29,6 +30,47 @@ import { ErrorProvider } from './utils/axios';
 
 const AuthProvider = JwtAuthProvider;
 
+// Build info component
+function BuildInfoBadge() {
+  const buildTime = import.meta.env.VITE_BUILD_TIME || new Date().toISOString();
+  const buildDate = new Date(buildTime);
+  const formattedBuildTime = buildDate.toLocaleString('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        bottom: 16,
+        right: 16,
+        zIndex: 9999,
+        backgroundColor: 'rgba(0, 0, 0, 0.85)',
+        color: '#fff',
+        padding: '12px 16px',
+        borderRadius: '6px',
+        fontSize: '0.8rem',
+        fontFamily: 'monospace',
+        backdropFilter: 'blur(8px)',
+        border: '2px solid rgba(76, 175, 80, 0.6)',
+        maxWidth: '220px',
+        wordBreak: 'break-word',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+      }}
+    >
+      <Typography sx={{ fontSize: '0.8rem', color: '#4CAF50', margin: 0, fontWeight: 'bold' }}>
+        🔨 BUILT: {formattedBuildTime}
+      </Typography>
+    </Box>
+  );
+}
+
 export default function App() {
   useScrollToTop();
 
@@ -48,6 +90,7 @@ export default function App() {
                       <ServicesHealthProvider>
                         <HealthGate>
                           <Router />
+                          <BuildInfoBadge />
                         </HealthGate>
                       </ServicesHealthProvider>
                     </ErrorProvider>

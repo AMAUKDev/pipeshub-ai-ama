@@ -679,7 +679,10 @@ const ChatInterface = () => {
         if (kb && kb.rootFolderId && !kb.children?.length) {
           try {
             setIsLoadingFolders(true);
-            const contents = await KnowledgeBaseAPI.getFolderContents(kb.id, kb.rootFolderId);
+            // When kbId === folderId (KB root), call without folderId parameter
+            const contents = kb.id === kb.rootFolderId
+              ? await KnowledgeBaseAPI.getFolderContents(kb.id)
+              : await KnowledgeBaseAPI.getFolderContents(kb.id, kb.rootFolderId);
 
             if (contents.folders && contents.folders.length > 0) {
               const folderResources: HierarchicalKBResource[] = contents.folders.map((folder) => ({

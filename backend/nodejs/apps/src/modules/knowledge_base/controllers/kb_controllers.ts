@@ -1481,8 +1481,13 @@ export const getFolderContents =
       }
 
       // Call the Python service to get KB records
+      // If folderId is provided, use the /children endpoint; otherwise use the /records endpoint
+      const endpoint = folderId
+        ? `${appConfig.connectorBackend}/api/v1/kb/${kbId}/folder/${folderId}/children?${queryParams.toString()}`
+        : `${appConfig.connectorBackend}/api/v1/kb/${kbId}/records?${queryParams.toString()}`;
+
       const response = await executeConnectorCommand(
-        `${appConfig.connectorBackend}/api/v1/kb/${kbId}/folder/${folderId}/children?${queryParams.toString()}`,
+        endpoint,
         HttpMethod.GET,
         req.headers as Record<string, string>,
       );
