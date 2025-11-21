@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef, useEffect, useMemo } from 'react'
 import { Icon } from '@iconify/react';
 import arrowUpIcon from '@iconify-icons/mdi/arrow-up';
 import chevronDownIcon from '@iconify-icons/mdi/chevron-down';
+import chevronRightIcon from '@iconify-icons/mdi/chevron-right';
 import sparklesIcon from '@iconify-icons/mdi/star-four-points';
 import plusIcon from '@iconify-icons/mdi/plus';
 import searchIcon from '@iconify-icons/mdi/magnify';
@@ -10,6 +11,9 @@ import chevronUpIcon from '@iconify-icons/mdi/chevron-up';
 import appsIcon from '@iconify-icons/mdi/connection';
 import databaseIcon from '@iconify-icons/mdi/database-outline';
 import filterIcon from '@iconify-icons/mdi/filter-variant';
+import folderIcon from '@iconify-icons/mdi/folder';
+import folderOpenIcon from '@iconify-icons/mdi/folder-open';
+import fileDocumentIcon from '@iconify-icons/mdi/file-document';
 import { Theme } from '@mui/material/styles';
 
 import {
@@ -32,8 +36,6 @@ import {
 import { KnowledgeBaseAPI } from 'src/sections/knowledgebase/services/api';
 
 import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
-import KBFolderTree from './kb-folder-tree';
-import { HierarchicalKBResource, FolderExpansionState } from '../resources';
 
 // Types
 interface Resource {
@@ -430,13 +432,249 @@ const ChatBotFilters = ({
   const totalSelected = selectedApps.length + selectedKbIds.length;
   const hasResults = filteredApps.length > 0 || filteredKBs.length > 0;
 
+  // Hierarchical KB tree state
+  type TreeNode = {
+    id: string; // raw id (kbId | folderId | recordId)
+    name: string;
+    type: 'kb' | 'folder' | 'file';
+    kbId: string; // owning kb id
+    parentFolderId?: string | null;
+    isLoaded?: boolean; // for folders/kb nodes: children loaded
+    children?: TreeNode[];
+  };
+
+  const [kbTrees, setKbTrees] = useState<Record<string, TreeNode>>({}); // key by kbId
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({}); // key by encoded key
+
+  const encodeFolderId = useCallback((kbId: string, folderId: string) => `kb:${kbId}:folder:${folderId}`,[ ]);
+  const encodeFileId = useCallback((kbId: string, recordId: string) => `kb:${kbId}:file:${recordId}`,[ ]);
+  const keyForNode = useCallback((node: TreeNode): string => {
+    if (node.type === 'kb') return `kb:${node.kbId}`;
+    if (node.type === 'folder') return encodeFolderId(node.kbId, node.id);
+    return encodeFileId(node.kbId, node.id);
+  }, [encodeFolderId, encodeFileId]);
+
+  // Initialize KB roots when filteredKBs change
+  useEffect(() => {
+    setKbTrees((prev) => {
+      const next = { ...prev };
+      (filteredKBs || []).forEach((kb) => {
+        if (!next[kb.id]) {
+          next[kb.id] = { id: kb.id, kbId: kb.id, name: kb.name, type: 'kb', isLoaded: false, children: [] };
+        } else {
+          // keep existing children/loaded, update name
+          next[kb.id] = { ...next[kb.id], name: kb.name };
+        }
+      });
+      return next;
+    });
+  }, [filteredKBs]);
+
+  const toggleExpand = useCallback((key: string) => {
+    setExpanded((e) => ({ ...e, [key]: !e[key] }));
+  }, []);
+
+  const loadChildren = useCallback(async (node: TreeNode) => {
+    if (node.type === 'file') return; // leaf
+    if (node.isLoaded) return;
+    try {
+      // root KB uses rootFolderId == kbId as seen in code-path elsewhere
+      const folderId = node.type === 'kb' ? (node.kbId) : node.id;
+      const resp = await KnowledgeBaseAPI.getFolderContents(node.kbId, folderId);
+      const folders = (resp.folders || []).map((f: any) => ({
+        id: f.id,
+        name: f.name || f.recordName || 'Folder',
+        type: 'folder' as const,
+        kbId: node.kbId,
+        parentFolderId: node.type === 'kb' ? null : node.id,
+        isLoaded: false,
+        children: [],
+      }));
+      const files = (resp.records || []).map((r: any) => ({
+        id: r.id,
+        name: r.recordName || r.name || 'File',
+        type: 'file' as const,
+        kbId: node.kbId,
+        parentFolderId: node.type === 'kb' ? null : node.id,
+      }));
+
+      setKbTrees((prev) => {
+        const clone = { ...prev };
+        const current = clone[node.kbId];
+        const attach = (target: TreeNode): boolean => {
+          if (target.type === node.type && target.id === node.id) {
+            target.children = [...folders, ...files];
+            target.isLoaded = true;
+            return true;
+          }
+          if (target.children) {
+            return target.children.some((ch: TreeNode) => attach(ch));
+          }
+          return false;
+        };
+        if (current) attach(current);
+        return clone;
+      });
+    } catch (e) {
+      // swallow
+    }
+  }, []);
+
+  const onToggleNodeSelect = useCallback((node: TreeNode) => {
+    if (node.type === 'kb') {
+      // use existing kb selection behavior
+      const id = node.kbId;
+      const isSelected = selectedKbIds.includes(id);
+      isSelected ? setSelectedKbIds(selectedKbIds.filter((x) => x !== id)) : setSelectedKbIds([...selectedKbIds, id]);
+      return;
+    }
+    const encoded = node.type === 'folder' ? encodeFolderId(node.kbId, node.id) : encodeFileId(node.kbId, node.id);
+    const isSelected = selectedKbIds.includes(encoded);
+    isSelected ? setSelectedKbIds(selectedKbIds.filter((x) => x !== encoded)) : setSelectedKbIds([...selectedKbIds, encoded]);
+  }, [selectedKbIds, setSelectedKbIds, encodeFolderId, encodeFileId]);
+
+  const TreeRow: React.FC<{ node: TreeNode; level: number }> = ({ node, level }) => {
+    const k = keyForNode(node);
+    const isExpanded = !!expanded[k];
+    const isSelected = node.type === 'kb' ? selectedKbIds.includes(node.kbId)
+      : selectedKbIds.includes(node.type === 'folder' ? encodeFolderId(node.kbId, node.id) : encodeFileId(node.kbId, node.id));
+
+    const onExpand = async (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!isExpanded && !node.isLoaded && (node.type === 'kb' || node.type === 'folder')) {
+        await loadChildren(node);
+      }
+      toggleExpand(k);
+    };
+
+    return (
+      <MenuItem
+        onClick={() => onToggleNodeSelect(node)}
+        sx={{
+          px: 2,
+          py: 0.75,
+          mx: 1,
+          mb: 0.25,
+          borderRadius: '4px',
+          minHeight: 30,
+          transition: 'all 0.15s ease',
+          ml: `${level * 12}px`,
+          backgroundColor: isSelected
+            ? isDark
+              ? 'rgba(255, 255, 255, 0.06)'
+              : 'rgba(0, 0, 0, 0.06)'
+            : 'transparent',
+          border: isSelected
+            ? `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`
+            : '1px solid transparent',
+          '&:hover': {
+            backgroundColor: isSelected
+              ? isDark
+                ? 'rgba(255, 255, 255, 0.08)'
+                : 'rgba(0, 0, 0, 0.08)'
+              : isDark
+                ? 'rgba(255, 255, 255, 0.03)'
+                : 'rgba(0, 0, 0, 0.03)',
+          },
+        }}
+      >
+        {/* Expand icon space */}
+        <Box sx={{ display: 'flex', alignItems: 'center', width: 20, mr: 1 }}>
+          {(node.type === 'kb' || node.type === 'folder') ? (
+            <Icon
+              onClick={onExpand}
+              icon={isExpanded ? chevronDownIcon : chevronRightIcon}
+              width={14}
+              height={14}
+              style={{ cursor: 'pointer', color: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)' }}
+            />
+          ) : (
+            <Box sx={{ width: 14 }} />
+          )}
+        </Box>
+
+        {/* Type icon */}
+        <Box sx={{ width: 18, mr: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          {node.type === 'kb' ? (
+            <Icon icon={databaseIcon} width={14} height={14} style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.7)' }} />
+          ) : node.type === 'folder' ? (
+            <Icon icon={isExpanded ? folderOpenIcon : folderIcon} width={14} height={14} style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.7)' }} />
+          ) : (
+            <Icon icon={fileDocumentIcon} width={14} height={14} style={{ color: isDark ? 'rgba(255,255,255,0.7)' : 'rgba(0,0,0,0.7)' }} />
+          )}
+        </Box>
+
+        {/* Name */}
+        <Typography sx={{ flex: 1, fontSize: '0.85rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {node.name}
+        </Typography>
+
+        {/* Selected dot */}
+        {isSelected && <Box sx={{ width: 6, height: 6, borderRadius: '50%', backgroundColor: isDark ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.6)' }} />}
+      </MenuItem>
+    );
+  };
+
+  const renderKBTreeSection = () => {
+    const selectedItems = selectedKbIds;
+
+    return (
+      <Box key="kb-tree">
+        <SectionHeader
+          section={'kb'}
+          isExpanded={expandedSections.kb}
+          selectedCount={selectedItems.length}
+          onToggle={() => toggleSection('kb')}
+          theme={theme}
+          isDark={isDark}
+        />
+
+        <Collapse in={expandedSections.kb} timeout={CONFIG.TRANSITION_DURATION}>
+          <Box sx={{ pb: 1 }}>
+            {(filteredKBs || []).map((kb) => {
+              const root = kbTrees[kb.id] || { id: kb.id, kbId: kb.id, name: kb.name, type: 'kb' as const, isLoaded: false, children: [] };
+              const isRootExpanded = !!expanded[`kb:${kb.id}`];
+              return (
+                <Box key={kb.id}>
+                  <TreeRow node={root} level={0} />
+                  {isRootExpanded && root.children && root.children.map((ch) => (
+                    <RecursiveChildren
+                      key={keyForNode(ch)}
+                      parent={ch}
+                      level={1}
+                      expanded={expanded}
+                      keyForNode={keyForNode}
+                      onToggleNodeSelect={onToggleNodeSelect}
+                      encodeFolderId={encodeFolderId}
+                      encodeFileId={encodeFileId}
+                      selectedKbIds={selectedKbIds}
+                      isDark={isDark}
+                      loadChildren={loadChildren}
+                      toggleExpand={toggleExpand}
+                    />
+                  ))}
+                </Box>
+              );
+            })}
+          </Box>
+        </Collapse>
+      </Box>
+    );
+  };
+
+  // Moved out below as top-level component to avoid nested component lint rule
+
   const renderSection = (section: 'apps' | 'kb') => {
     const isApps = section === 'apps';
-    const resources = isApps ? filteredApps : filteredKBs;
-    const selectedItems = isApps ? selectedApps : selectedKbIds;
-    const showMore = isApps ? showMoreApps : showMoreKBs;
-    const setShowMore = isApps ? setShowMoreApps : setShowMoreKBs;
-    const toggleResource = isApps ? toggleApp : toggleKb;
+    if (!isApps) {
+      return renderKBTreeSection();
+    }
+
+    const resources = filteredApps;
+    const selectedItems = selectedApps;
+    const showMore = showMoreApps;
+    const setShowMore = setShowMoreApps;
+    const toggleResource = toggleApp;
 
     const displayCount = showMore ? resources.length : CONFIG.DISPLAY_COUNT;
     const hasMore = resources.length > CONFIG.DISPLAY_COUNT;
@@ -458,7 +696,7 @@ const ChatBotFilters = ({
               <ResourceItem
                 key={resource.id}
                 resource={resource}
-                type={isApps ? 'app' : 'kb'}
+                type={'app'}
                 isSelected={selectedItems.includes(resource.id)}
                 onToggle={() => toggleResource(resource.id)}
                 theme={theme}
@@ -584,7 +822,7 @@ const ChatBotFilters = ({
                     fontWeight: 400,
                   }}
                 >
-                  No results for &quot;{searchTerm}&quot;
+                  {`No results for "${searchTerm}"`}
                 </Typography>
               </Box>
             ) : (
@@ -640,6 +878,59 @@ const ChatBotFilters = ({
         )}
       </Box>
     </Menu>
+  );
+};
+
+// Hoist TreeRow so it's available to RecursiveChildren as well
+// eslint-disable-next-line react/function-component-definition
+const TreeRow: React.FC<{ node: any; level: number; isDark?: boolean; expanded?: Record<string, boolean>; onToggleNodeSelect?: (n: any) => void; onExpand?: (n: any, key: string, e: React.MouseEvent) => void; keyForNode?: (n: any) => string; encodeFolderId?: (kbId: string, folderId: string) => string; encodeFileId?: (kbId: string, recordId: string) => string; selectedKbIds?: string[]; }> = ({ node, level }) => {
+  // This definition is shadowed by the in-component version when used there; here it's only for the standalone RecursiveChildren usage
+  return (
+    <MenuItem sx={{ px: 2, py: 0.75, mx: 1, mb: 0.25, borderRadius: '4px', minHeight: 30, ml: `${level * 12}px` }}>
+      <Typography sx={{ flex: 1, fontSize: '0.85rem' }}>{node?.name}</Typography>
+    </MenuItem>
+  );
+};
+
+// Standalone recursive children component to avoid nested component definitions
+const RecursiveChildren: React.FC<{
+  parent: { id: string; name: string; type: 'kb' | 'folder' | 'file'; kbId: string; parentFolderId?: string | null; isLoaded?: boolean; children?: any[] };
+  level: number;
+  expanded: Record<string, boolean>;
+  keyForNode: (n: any) => string;
+  onToggleNodeSelect: (n: any) => void;
+  encodeFolderId: (kbId: string, folderId: string) => string;
+  encodeFileId: (kbId: string, recordId: string) => string;
+  selectedKbIds: string[];
+  isDark: boolean;
+  loadChildren: (n: any) => Promise<void>;
+  toggleExpand: (key: string) => void;
+}> = ({ parent, level, expanded, keyForNode, onToggleNodeSelect, encodeFolderId, encodeFileId, selectedKbIds, isDark, loadChildren, toggleExpand }) => {
+  const isParentExpanded = !!expanded[keyForNode(parent)];
+  return (
+    <>
+      {isParentExpanded && parent.children && parent.children.map((ch) => (
+        <React.Fragment key={keyForNode(ch)}>
+          <TreeRow node={ch} level={level} />
+          {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g: any) => (
+            <RecursiveChildren
+              key={keyForNode(g)}
+              parent={g}
+              level={level + 1}
+              expanded={expanded}
+              keyForNode={keyForNode}
+              onToggleNodeSelect={onToggleNodeSelect}
+              encodeFolderId={encodeFolderId}
+              encodeFileId={encodeFileId}
+              selectedKbIds={selectedKbIds}
+              isDark={isDark}
+              loadChildren={loadChildren}
+              toggleExpand={toggleExpand}
+            />
+          ))}
+        </React.Fragment>
+      ))}
+    </>
   );
 };
 
