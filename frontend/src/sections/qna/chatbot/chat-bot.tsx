@@ -706,7 +706,6 @@ const ChatInterface = () => {
     },
     [folderExpansionState, hierarchicalKBs]
   );
-=======
 
   const [updateTrigger, setUpdateTrigger] = useState(0);
   const forceUpdate = useCallback(() => setUpdateTrigger((prev) => prev + 1), []);

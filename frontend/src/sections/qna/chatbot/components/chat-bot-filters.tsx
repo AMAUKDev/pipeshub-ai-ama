@@ -28,10 +28,12 @@ import {
   Badge,
   Stack,
 } from '@mui/material';
+
+import { KnowledgeBaseAPI } from 'src/sections/knowledgebase/services/api';
+
 import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
 import KBFolderTree from './kb-folder-tree';
 import { HierarchicalKBResource, FolderExpansionState } from '../resources';
-import { KnowledgeBaseAPI } from 'src/sections/knowledgebase/services/api';
 
 // Types
 interface Resource {
