@@ -483,11 +483,11 @@ const ChatBotFilters = ({
     try {
       console.log('[KB Tree] Loading children for node:', { nodeId: node.id, nodeType: node.type, kbId: node.kbId });
 
-      // root KB uses rootFolderId == kbId as seen in code-path elsewhere
-      const folderId = node.type === 'kb' ? (node.kbId) : node.id;
-      console.log('[KB Tree] Calling getFolderContents with:', { kbId: node.kbId, folderId });
-
-      const resp = await KnowledgeBaseAPI.getFolderContents(node.kbId, folderId);
+      // For KB root, don't pass folderId; for folders, pass the folder ID
+      const resp = node.type === 'kb'
+        ? await KnowledgeBaseAPI.getFolderContents(node.kbId)
+        : await KnowledgeBaseAPI.getFolderContents(node.kbId, node.id);
+      console.log('[KB Tree] getFolderContents response:', resp);
       console.log('[KB Tree] getFolderContents response:', resp);
 
       const folders = (resp.folders || []).map((f: any) => ({
@@ -563,6 +563,22 @@ const ChatBotFilters = ({
       setSelectedKbIds([...selectedKbIds, encoded]);
     }
   }, [selectedKbIds, setSelectedKbIds, encodeFolderId, encodeFileId]);
+
+  const RecursiveChildren: React.FC<{ parent: TreeNode; level: number }> = ({ parent, level }) => {
+    const isParentExpanded = !!expanded[keyForNode(parent)];
+    return (
+      <>
+        {isParentExpanded && parent.children && parent.children.map((ch) => (
+          <Box key={keyForNode(ch)}>
+            <TreeRow node={ch} level={level} />
+            {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g) => (
+              <RecursiveChildren key={keyForNode(g)} parent={g} level={level + 1} />
+            ))}
+          </Box>
+        ))}
+      </>
+    );
+  };
 
   const TreeRow: React.FC<{ node: TreeNode; level: number }> = ({ node, level }) => {
     const k = keyForNode(node);
@@ -668,7 +684,7 @@ const ChatBotFilters = ({
               return (
                 <Box key={kb.id}>
                   <TreeRow node={root} level={0} />
-                  {isRootExpanded && root.children && root.children.map((ch) => (
+                  {isRootExpanded && root.children && root.children.length > 0 && root.children.map((ch) => (
                     <RecursiveChildren key={keyForNode(ch)} parent={ch} level={1} />
                   ))}
                 </Box>
@@ -677,22 +693,6 @@ const ChatBotFilters = ({
           </Box>
         </Collapse>
       </Box>
-    );
-  };
-
-  const RecursiveChildren: React.FC<{ parent: TreeNode; level: number }> = ({ parent, level }) => {
-    const isParentExpanded = !!expanded[keyForNode(parent)];
-    return (
-      <>
-        {isParentExpanded && parent.children && parent.children.map((ch) => (
-          <>
-            <TreeRow key={keyForNode(ch)} node={ch} level={level} />
-            {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g) => (
-              <RecursiveChildren key={keyForNode(g)} parent={g} level={level + 1} />
-            ))}
-          </>
-        ))}
-      </>
     );
   };
 

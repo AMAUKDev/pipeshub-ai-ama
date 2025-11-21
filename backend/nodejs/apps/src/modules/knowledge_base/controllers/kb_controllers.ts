@@ -1486,11 +1486,28 @@ export const getFolderContents =
         ? `${appConfig.connectorBackend}/api/v1/kb/${kbId}/folder/${folderId}/children?${queryParams.toString()}`
         : `${appConfig.connectorBackend}/api/v1/kb/${kbId}/records?${queryParams.toString()}`;
 
+      logger.info('getFolderContents: Calling Python backend', {
+        kbId,
+        folderId,
+        hasFolderId: !!folderId,
+        endpoint,
+        endpointType: folderId ? 'folder/children' : 'records',
+        requestId: req.context?.requestId,
+      });
+
       const response = await executeConnectorCommand(
         endpoint,
         HttpMethod.GET,
         req.headers as Record<string, string>,
       );
+
+      logger.info('getFolderContents: Python response received', {
+        kbId,
+        folderId,
+        statusCode: response.statusCode,
+        hasData: !!response.data,
+        requestId: req.context?.requestId,
+      });
 
       handleConnectorResponse(
         response,
@@ -1500,7 +1517,11 @@ export const getFolderContents =
       );
 
       // Log successful retrieval
-      logger.info('KB records retrieved successfully', kbId);
+      logger.info('getFolderContents: KB records retrieved successfully', {
+        kbId,
+        folderId,
+        requestId: req.context?.requestId,
+      });
     } catch (error: any) {
       logger.error('Error getting KB records', {
         kbId: req.params.kbId,

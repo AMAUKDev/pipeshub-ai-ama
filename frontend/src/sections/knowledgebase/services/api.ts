@@ -250,34 +250,61 @@ export class KnowledgeBaseAPI {
     folderId?: string,
     params?: any
   ): Promise<FolderContents> {
+    console.log('[API] getFolderContents called with:', { kbId, folderId, params, hasFolderId: !!folderId });
+
     const url = folderId ? `${API_BASE}/${kbId}/folder/${folderId}` : `${API_BASE}/${kbId}/records`;
-    const response = await axios.get(url, { params });
-    if (!response.data) throw new Error('Failed to fetch folder contents');
+    console.log('[API] getFolderContents constructed URL:', { url, endpoint: folderId ? 'folder' : 'records' });
 
-    // Normalize response to ensure it has the expected structure
-    const data = response.data;
-    const normalized: FolderContents = {
-      folders: data.folders || [],
-      records: data.records || [],
-      pagination: data.pagination || {
-        page: 1,
-        limit: 20,
-        totalItems: (data.folders?.length || 0) + (data.records?.length || 0),
-        totalPages: 1,
-        hasNext: false,
-        hasPrev: false,
-      },
-      userPermission: data.userPermission || {
-        role: 'READER',
-        canUpload: false,
-        canCreateFolders: false,
-        canEdit: false,
-        canDelete: false,
-      },
-    };
+    try {
+      const response = await axios.get(url, { params });
+      console.log('[API] getFolderContents response received:', {
+        status: response.status,
+        hasData: !!response.data,
+        dataKeys: response.data ? Object.keys(response.data) : []
+      });
 
-    console.log('[API] getFolderContents normalized response:', { url, original: data, normalized });
-    return normalized;
+      if (!response.data) throw new Error('Failed to fetch folder contents');
+
+      // Normalize response to ensure it has the expected structure
+      const data = response.data;
+      const normalized: FolderContents = {
+        folders: data.folders || [],
+        records: data.records || [],
+        pagination: data.pagination || {
+          page: 1,
+          limit: 20,
+          totalItems: (data.folders?.length || 0) + (data.records?.length || 0),
+          totalPages: 1,
+          hasNext: false,
+          hasPrev: false,
+        },
+        userPermission: data.userPermission || {
+          role: 'READER',
+          canUpload: false,
+          canCreateFolders: false,
+          canEdit: false,
+          canDelete: false,
+        },
+      };
+
+      console.log('[API] getFolderContents normalized response:', {
+        url,
+        folderCount: (normalized.folders || []).length,
+        recordCount: (normalized.records || []).length,
+        totalItems: normalized.pagination?.totalItems
+      });
+      return normalized;
+    } catch (error) {
+      console.error('[API] getFolderContents error:', {
+        kbId,
+        folderId,
+        url,
+        error: error instanceof Error ? error.message : String(error),
+        errorStatus: (error as any)?.response?.status,
+        errorData: (error as any)?.response?.data
+      });
+      throw error;
+    }
   }
 
   // Record operations
