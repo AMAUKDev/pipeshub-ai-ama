@@ -1,0 +1,11 @@
+in powershell to install choco:
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+in cmd:
+choco feature enable -n=useRememberedArgumentsForUpgrades
+choco install mambaforge --params="'/AddToPath:1'"
+conda config --append channels conda-forge
+mamba config --append channels conda-forge
+
+^ add to path doesn't always work
+go to advanced system settings, environment variables, add C:\tools\mambaforge\condabin

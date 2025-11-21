@@ -1,0 +1,6 @@
+install_WSL_and_ubuntu
+
+wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+bash Mambaforge-$(uname)-$(uname -m).sh
+
+then write .sh bash files. To run them in the original terminal instance (so that mamba works), use "source file.sh" in terminal.

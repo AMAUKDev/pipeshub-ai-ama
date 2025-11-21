@@ -35,6 +35,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-restricted-exports': 0,
     'no-promise-executor-return': 0,
+    'no-restricted-syntax': 0,
     'import/prefer-default-export': 0,
     'prefer-destructuring': [1, { object: true, array: false }],
     // typescript

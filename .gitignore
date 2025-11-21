@@ -180,5 +180,6 @@ image_*.png
 
 .cursorignore
 
-project/*
-.project/*
+
+dist/
+node_modules/

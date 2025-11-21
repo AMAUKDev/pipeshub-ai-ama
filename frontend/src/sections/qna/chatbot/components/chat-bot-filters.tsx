@@ -508,7 +508,9 @@ const ChatBotFilters = ({
             return true;
           }
           if (target.children) {
-            return target.children.some((ch: TreeNode) => attach(ch));
+            for (const ch of target.children) {
+              if (attach(ch)) return true;
+            }
           }
           return false;
         };
@@ -525,12 +527,20 @@ const ChatBotFilters = ({
       // use existing kb selection behavior
       const id = node.kbId;
       const isSelected = selectedKbIds.includes(id);
-      isSelected ? setSelectedKbIds(selectedKbIds.filter((x) => x !== id)) : setSelectedKbIds([...selectedKbIds, id]);
+      if (isSelected) {
+        setSelectedKbIds(selectedKbIds.filter((x) => x !== id));
+      } else {
+        setSelectedKbIds([...selectedKbIds, id]);
+      }
       return;
     }
     const encoded = node.type === 'folder' ? encodeFolderId(node.kbId, node.id) : encodeFileId(node.kbId, node.id);
     const isSelected = selectedKbIds.includes(encoded);
-    isSelected ? setSelectedKbIds(selectedKbIds.filter((x) => x !== encoded)) : setSelectedKbIds([...selectedKbIds, encoded]);
+    if (isSelected) {
+      setSelectedKbIds(selectedKbIds.filter((x) => x !== encoded));
+    } else {
+      setSelectedKbIds([...selectedKbIds, encoded]);
+    }
   }, [selectedKbIds, setSelectedKbIds, encodeFolderId, encodeFileId]);
 
   const TreeRow: React.FC<{ node: TreeNode; level: number }> = ({ node, level }) => {
@@ -621,7 +631,7 @@ const ChatBotFilters = ({
     return (
       <Box key="kb-tree">
         <SectionHeader
-          section={'kb'}
+          section="kb"
           isExpanded={expandedSections.kb}
           selectedCount={selectedItems.length}
           onToggle={() => toggleSection('kb')}
@@ -638,20 +648,7 @@ const ChatBotFilters = ({
                 <Box key={kb.id}>
                   <TreeRow node={root} level={0} />
                   {isRootExpanded && root.children && root.children.map((ch) => (
-                    <RecursiveChildren
-                      key={keyForNode(ch)}
-                      parent={ch}
-                      level={1}
-                      expanded={expanded}
-                      keyForNode={keyForNode}
-                      onToggleNodeSelect={onToggleNodeSelect}
-                      encodeFolderId={encodeFolderId}
-                      encodeFileId={encodeFileId}
-                      selectedKbIds={selectedKbIds}
-                      isDark={isDark}
-                      loadChildren={loadChildren}
-                      toggleExpand={toggleExpand}
-                    />
+                    <RecursiveChildren key={keyForNode(ch)} parent={ch} level={1} />
                   ))}
                 </Box>
               );
@@ -662,7 +659,21 @@ const ChatBotFilters = ({
     );
   };
 
-  // Moved out below as top-level component to avoid nested component lint rule
+  const RecursiveChildren: React.FC<{ parent: TreeNode; level: number }> = ({ parent, level }) => {
+    const isParentExpanded = !!expanded[keyForNode(parent)];
+    return (
+      <>
+        {isParentExpanded && parent.children && parent.children.map((ch) => (
+          <>
+            <TreeRow key={keyForNode(ch)} node={ch} level={level} />
+            {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g) => (
+              <RecursiveChildren key={keyForNode(g)} parent={g} level={level + 1} />
+            ))}
+          </>
+        ))}
+      </>
+    );
+  };
 
   const renderSection = (section: 'apps' | 'kb') => {
     const isApps = section === 'apps';
@@ -696,7 +707,7 @@ const ChatBotFilters = ({
               <ResourceItem
                 key={resource.id}
                 resource={resource}
-                type={'app'}
+                type="app"
                 isSelected={selectedItems.includes(resource.id)}
                 onToggle={() => toggleResource(resource.id)}
                 theme={theme}
@@ -822,7 +833,7 @@ const ChatBotFilters = ({
                     fontWeight: 400,
                   }}
                 >
-                  {`No results for "${searchTerm}"`}
+                  No results for &quot;{searchTerm}&quot;
                 </Typography>
               </Box>
             ) : (
@@ -878,59 +889,6 @@ const ChatBotFilters = ({
         )}
       </Box>
     </Menu>
-  );
-};
-
-// Hoist TreeRow so it's available to RecursiveChildren as well
-// eslint-disable-next-line react/function-component-definition
-const TreeRow: React.FC<{ node: any; level: number; isDark?: boolean; expanded?: Record<string, boolean>; onToggleNodeSelect?: (n: any) => void; onExpand?: (n: any, key: string, e: React.MouseEvent) => void; keyForNode?: (n: any) => string; encodeFolderId?: (kbId: string, folderId: string) => string; encodeFileId?: (kbId: string, recordId: string) => string; selectedKbIds?: string[]; }> = ({ node, level }) => {
-  // This definition is shadowed by the in-component version when used there; here it's only for the standalone RecursiveChildren usage
-  return (
-    <MenuItem sx={{ px: 2, py: 0.75, mx: 1, mb: 0.25, borderRadius: '4px', minHeight: 30, ml: `${level * 12}px` }}>
-      <Typography sx={{ flex: 1, fontSize: '0.85rem' }}>{node?.name}</Typography>
-    </MenuItem>
-  );
-};
-
-// Standalone recursive children component to avoid nested component definitions
-const RecursiveChildren: React.FC<{
-  parent: { id: string; name: string; type: 'kb' | 'folder' | 'file'; kbId: string; parentFolderId?: string | null; isLoaded?: boolean; children?: any[] };
-  level: number;
-  expanded: Record<string, boolean>;
-  keyForNode: (n: any) => string;
-  onToggleNodeSelect: (n: any) => void;
-  encodeFolderId: (kbId: string, folderId: string) => string;
-  encodeFileId: (kbId: string, recordId: string) => string;
-  selectedKbIds: string[];
-  isDark: boolean;
-  loadChildren: (n: any) => Promise<void>;
-  toggleExpand: (key: string) => void;
-}> = ({ parent, level, expanded, keyForNode, onToggleNodeSelect, encodeFolderId, encodeFileId, selectedKbIds, isDark, loadChildren, toggleExpand }) => {
-  const isParentExpanded = !!expanded[keyForNode(parent)];
-  return (
-    <>
-      {isParentExpanded && parent.children && parent.children.map((ch) => (
-        <React.Fragment key={keyForNode(ch)}>
-          <TreeRow node={ch} level={level} />
-          {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g: any) => (
-            <RecursiveChildren
-              key={keyForNode(g)}
-              parent={g}
-              level={level + 1}
-              expanded={expanded}
-              keyForNode={keyForNode}
-              onToggleNodeSelect={onToggleNodeSelect}
-              encodeFolderId={encodeFolderId}
-              encodeFileId={encodeFileId}
-              selectedKbIds={selectedKbIds}
-              isDark={isDark}
-              loadChildren={loadChildren}
-              toggleExpand={toggleExpand}
-            />
-          ))}
-        </React.Fragment>
-      ))}
-    </>
   );
 };
 

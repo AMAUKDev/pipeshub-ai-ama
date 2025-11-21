@@ -1,0 +1,6 @@
+DO THIS IN POWERSHELL
+
+choco install mongodb.install
+choco install mongodb-compass
+choco install mongodb-shell
+choco install mongodb-database-tools
