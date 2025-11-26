@@ -565,17 +565,38 @@ const ChatBotFilters = ({
   }, [selectedKbIds, setSelectedKbIds, encodeFolderId, encodeFileId]);
 
   const RecursiveChildren: React.FC<{ parent: TreeNode; level: number }> = ({ parent, level }) => {
-    const isParentExpanded = !!expanded[keyForNode(parent)];
+    const parentKey = keyForNode(parent);
+    const parentExpanded = !!expanded[parentKey];
+    console.log('[RecursiveChildren] Rendering:', {
+      parentId: parent.id,
+      parentName: parent.name,
+      parentType: parent.type,
+      parentKey,
+      parentExpanded,
+      childrenCount: parent.children?.length || 0,
+      children: parent.children?.map(c => ({ id: c.id, name: c.name, type: c.type })) || [],
+    });
     return (
       <>
-        {isParentExpanded && parent.children && parent.children.map((ch) => (
-          <Box key={keyForNode(ch)}>
-            <TreeRow node={ch} level={level} />
-            {(ch.type !== 'file') && expanded[keyForNode(ch)] && ch.children && ch.children.map((g) => (
-              <RecursiveChildren key={keyForNode(g)} parent={g} level={level + 1} />
-            ))}
-          </Box>
-        ))}
+        {parentExpanded && parent.children && parent.children.map((ch) => {
+          const childKey = keyForNode(ch);
+          const childExpanded = !!expanded[childKey];
+          console.log('[RecursiveChildren] Rendering child:', {
+            childId: ch.id,
+            childName: ch.name,
+            childType: ch.type,
+            childKey,
+            childExpanded,
+          });
+          return (
+            <Box key={childKey}>
+              <TreeRow node={ch} level={level} />
+              {(ch.type !== 'file') && childExpanded && ch.children && ch.children.map((g) => (
+                <RecursiveChildren key={keyForNode(g)} parent={g} level={level + 1} />
+              ))}
+            </Box>
+          );
+        })}
       </>
     );
   };
@@ -681,12 +702,29 @@ const ChatBotFilters = ({
             {(filteredKBs || []).map((kb) => {
               const root = kbTrees[kb.id] || { id: kb.id, kbId: kb.id, name: kb.name, type: 'kb' as const, isLoaded: false, children: [] };
               const isRootExpanded = !!expanded[`kb:${kb.id}`];
+              console.log('[renderKBTreeSection] Rendering KB:', {
+                kbId: kb.id,
+                kbName: kb.name,
+                isRootExpanded,
+                childrenCount: root.children?.length || 0,
+                children: root.children?.map(c => ({ id: c.id, name: c.name, type: c.type })) || [],
+              });
               return (
                 <Box key={kb.id}>
                   <TreeRow node={root} level={0} />
-                  {isRootExpanded && root.children && root.children.length > 0 && root.children.map((ch) => (
-                    <RecursiveChildren key={keyForNode(ch)} parent={ch} level={1} />
-                  ))}
+                  {isRootExpanded && root.children && root.children.length > 0 && root.children.map((ch) => {
+                    console.log('[renderKBTreeSection] Rendering direct child:', {
+                      childId: ch.id,
+                      childName: ch.name,
+                      childType: ch.type,
+                    });
+                    return (
+                      <Box key={keyForNode(ch)}>
+                        <TreeRow node={ch} level={1} />
+                        <RecursiveChildren parent={ch} level={1} />
+                      </Box>
+                    );
+                  })}
                 </Box>
               );
             })}
