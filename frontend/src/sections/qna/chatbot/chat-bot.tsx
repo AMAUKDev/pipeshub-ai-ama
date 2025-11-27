@@ -51,6 +51,7 @@ import { StreamingContext } from './components/chat-message';
 import { processStreamingContentLegacy } from './utils/styles/content-processing';
 import ImageHighlighter from './components/image-highlighter';
 import { HierarchicalKBResource, FolderExpansionState } from './resources';
+import { parseKBFilters } from './utils/kb-filter-parser';
 
 const DRAWER_WIDTH = 300;
 
@@ -1093,6 +1094,10 @@ const ChatInterface = () => {
           setSelectedKbIds(filters.kb || []);
         }
 
+        // Parse hierarchical KB filters into structured format
+        const parsedFilters = filters || currentFilters;
+        const kbFilters = parseKBFilters(parsedFilters.kb || []);
+
         const createdConversationId = await handleStreamingResponse(
           streamingUrl,
           {
@@ -1100,7 +1105,10 @@ const ChatInterface = () => {
             modelKey: selectedModel?.modelKey,
             modelName: selectedModel?.modelName,
             chatMode,
-            filters: filters || currentFilters,
+            filters: {
+              apps: parsedFilters.apps || [],
+              kb: kbFilters,
+            },
           },
           wasCreatingNewConversation
         );

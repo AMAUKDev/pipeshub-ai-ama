@@ -22,6 +22,7 @@ import {
 import axios from 'src/utils/axios';
 import { createScrollableContainerStyle } from '../utils/styles/scrollbar';
 import ChatBotFilters from './chat-bot-filters';
+import { parseKBFilters } from '../utils/kb-filter-parser';
 
 export interface Model {
   modelType: string;
@@ -274,7 +275,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  
+
   const openResourcesMenu = (event: React.MouseEvent<HTMLElement>) =>
     setResourcesAnchor(event.currentTarget);
   const closeResourcesMenu = () => setResourcesAnchor(null);

@@ -30,7 +30,16 @@ export const enterpriseSearchCreateSchema = z.object({
     filters: z
       .object({
         apps: z.array(z.enum([APP_TYPES.DRIVE, APP_TYPES.GMAIL, APP_TYPES.ONEDRIVE, APP_TYPES.SHAREPOINT_ONLINE, APP_TYPES.LOCAL])).optional(),
-        kb: z.array(z.string().uuid()).optional(),
+        // Support both old format (array of UUIDs) and new format (hierarchical object)
+        kb: z.union([
+          z.array(z.string().uuid()), // Old format: ["uuid1", "uuid2"]
+          z.object({
+            // New format: { kbIds: [...], folderIds: [...], fileIds: [...] }
+            kbIds: z.array(z.string().uuid()).optional(),
+            folderIds: z.array(z.string().uuid()).optional(),
+            fileIds: z.array(z.string().uuid()).optional(),
+          }),
+        ]).optional(),
       })
       .optional(),
     modelKey: z.string().min(1, { message: 'Model key is required' }).optional(),
@@ -75,7 +84,16 @@ export const addMessageParamsSchema = enterpriseSearchCreateSchema.extend({
     filters: z
       .object({
         apps: z.array(z.enum([APP_TYPES.DRIVE, APP_TYPES.GMAIL, APP_TYPES.ONEDRIVE, APP_TYPES.SHAREPOINT_ONLINE, APP_TYPES.LOCAL])).optional(),
-        kb: z.array(z.string().uuid()).optional(),
+        // Support both old format (array of UUIDs) and new format (hierarchical object)
+        kb: z.union([
+          z.array(z.string().uuid()), // Old format: ["uuid1", "uuid2"]
+          z.object({
+            // New format: { kbIds: [...], folderIds: [...], fileIds: [...] }
+            kbIds: z.array(z.string().uuid()).optional(),
+            folderIds: z.array(z.string().uuid()).optional(),
+            fileIds: z.array(z.string().uuid()).optional(),
+          }),
+        ]).optional(),
       })
       .optional(),
     modelKey: z.string().min(1, { message: 'Model key is required' }).optional(),
@@ -105,7 +123,16 @@ export const regenerateAnswersParamsSchema = z.object({
     filters: z
       .object({
         apps: z.array(z.enum([APP_TYPES.DRIVE, APP_TYPES.GMAIL, APP_TYPES.ONEDRIVE, APP_TYPES.SHAREPOINT_ONLINE, APP_TYPES.LOCAL])).optional(),
-        kb: z.array(z.string().uuid()).optional(),
+        // Support both old format (array of UUIDs) and new format (hierarchical object)
+        kb: z.union([
+          z.array(z.string().uuid()), // Old format: ["uuid1", "uuid2"]
+          z.object({
+            // New format: { kbIds: [...], folderIds: [...], fileIds: [...] }
+            kbIds: z.array(z.string().uuid()).optional(),
+            folderIds: z.array(z.string().uuid()).optional(),
+            fileIds: z.array(z.string().uuid()).optional(),
+          }),
+        ]).optional(),
       })
       .optional(),
     modelKey: z.string().min(1, { message: 'Model key is required' }).optional(),

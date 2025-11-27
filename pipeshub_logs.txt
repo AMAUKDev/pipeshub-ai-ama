@@ -1,0 +1,966 @@
+﻿pipeshub-ai-1  | [2025-11-26 22:58:43] === Process Monitor Starting ===
+pipeshub-ai-1  | [2025-11-26 22:58:43] Starting Node.js service...
+pipeshub-ai-1  | [2025-11-26 22:58:43] Node.js started with PID: 15
+pipeshub-ai-1  | [2025-11-26 22:58:43] Starting Connector service...
+pipeshub-ai-1  | [2025-11-26 22:58:43] Connector started with PID: 22
+pipeshub-ai-1  | [2025-11-26 22:58:43] Starting Indexing service...
+pipeshub-ai-1  | [2025-11-26 22:58:43] Indexing started with PID: 34
+pipeshub-ai-1  | [2025-11-26 22:58:43] Starting Query service...
+pipeshub-ai-1  | [2025-11-26 22:58:43] Query started with PID: 42
+pipeshub-ai-1  | [2025-11-26 22:58:43] Starting Docling service...
+pipeshub-ai-1  | [2025-11-26 22:58:43] Docling started with PID: 49
+pipeshub-ai-1  | [2025-11-26 22:58:43] All services started. Beginning monitoring cycle (checking every 10s)...
+pipeshub-ai-1  | /usr/local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.19) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+pipeshub-ai-1  |   warnings.warn(message, FutureWarning)
+pipeshub-ai-1  | 2025-11-26T22:58:44.547Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.550Z [keyValueStore.service.js:46] [32minfo[39m: Successfully connected to key-value store
+pipeshub-ai-1  | (node:15) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+pipeshub-ai-1  |  SDK releases are limited to address critical bug fixes and security issues only.
+pipeshub-ai-1  | 
+pipeshub-ai-1  | Please migrate your code to use AWS SDK for JavaScript (v3).
+pipeshub-ai-1  | For more information, check the blog post at https://a.co/cUPnyil
+pipeshub-ai-1  | (Use `node --trace-warnings ...` to show where the warning was created)
+pipeshub-ai-1  | 2025-11-26T22:58:44.847Z [mongo.service.js:64] [32minfo[39m: Connected to MongoDB database: es
+pipeshub-ai-1  | 2025-11-26T22:58:44.849Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | {"level":"WARN","timestamp":"2025-11-26T22:58:44.850Z","logger":"kafkajs","message":"KafkaJS v2.0.0 switched default partitioner. To retain the same partitioning behavior as in previous versions, create the producer with the option \"createPartitioner: Partitioners.LegacyPartitioner\". See the migration guide at https://kafka.js.org/docs/migration-guide-v2.0.0#producer-new-default-partitioner for details. Silence this warning by setting the environment variable \"KAFKAJS_NO_PARTITIONER_WARNING=1\""}
+pipeshub-ai-1  | 2025-11-26T22:58:44.852Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.853Z [cm_container.js:66] [32minfo[39m: Configuration Manager services initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.853Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.853Z [storage.container.js:50] [32minfo[39m: Storage services initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.854Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.855Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.855Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.856Z [es.container.js:55] [32minfo[39m: Enterprise Search Agent services initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.856Z [kb_container.js:28] [32minfo[39m:  In the init  kb conatiner
+pipeshub-ai-1  | 2025-11-26T22:58:44.873Z [redis.service.js:52] [32minfo[39m: Redis client connected
+pipeshub-ai-1  | 2025-11-26T22:58:44.874Z [redis.service.js:52] [32minfo[39m: Redis client connected
+pipeshub-ai-1  | [0;36mMongoose:[0m userGroups.createIndex({ slug: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+pipeshub-ai-1  | 2025-11-26T22:58:44.900Z [redis.service.js:59] [32minfo[39m: Redis client ready
+pipeshub-ai-1  | 2025-11-26T22:58:44.902Z [redis.service.js:59] [32minfo[39m: Redis client ready
+pipeshub-ai-1  | [0;36mMongoose:[0m org.createIndex({ slug: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+pipeshub-ai-1  | 2025-11-26T22:58:44.919Z [arango.service.js:91] [32minfo[39m: ArangoDB connection established
+pipeshub-ai-1  | 2025-11-26T22:58:44.919Z [arango.service.js:78] [32minfo[39m: Connected to ArangoDB database: es
+pipeshub-ai-1  | 2025-11-26T22:58:44.919Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.919Z [kb_container.js:57] [32minfo[39m: before events producer
+pipeshub-ai-1  | 2025-11-26T22:58:44.922Z [kb_container.js:64] [32minfo[39m: After events producer binding
+pipeshub-ai-1  | 2025-11-26T22:58:44.923Z [kb_container.js:71] [32minfo[39m: After sync producer binding
+pipeshub-ai-1  | 2025-11-26T22:58:44.923Z [kb_container.js:77] [32minfo[39m: Knowledge Base services initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.924Z [cm_container.js:47] [32minfo[39m: Initializing Crawling Manager services
+pipeshub-ai-1  | 2025-11-26T22:58:44.924Z [keyValueStore.service.js:38] [32minfo[39m: Connecting to key-value store
+pipeshub-ai-1  | 2025-11-26T22:58:44.924Z [cm_container.js:65] [32minfo[39m: Starting crawling worker service...
+pipeshub-ai-1  | 2025-11-26T22:58:44.927Z [crawling_worker.js:46] [32minfo[39m: CrawlingWorkerService initialized
+pipeshub-ai-1  | 2025-11-26T22:58:44.927Z [cm_container.js:70] [32minfo[39m: Crawling worker service started successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.927Z [cm_container.js:71] [32minfo[39m: Crawling Manager services initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.938Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.938Z [prometheus.service.js:116] [32minfo[39m: PrometheusService initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.944Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.947Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.949Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.953Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.954Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.960Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.964Z [crawling_service.js:53] [32minfo[39m: CrawlingSchedulerService initialized
+pipeshub-ai-1  | 2025-11-26T22:58:44.964Z [prometheus.service.js:92] [32minfo[39m: Initializing PrometheusService
+pipeshub-ai-1  | 2025-11-26T22:58:44.965Z [swagger.container.js:110] [32minfo[39m: SwaggerService initialized
+pipeshub-ai-1  | 2025-11-26T22:58:44.982Z [swagger.container.js:257] [33mwarn[39m: Component securitySchemes.bearerAuth already defined in combined Swagger
+pipeshub-ai-1  | 2025-11-26T22:58:44.983Z [swagger.container.js:141] [32minfo[39m: Registered Swagger documentation for module: storage
+pipeshub-ai-1  | 2025-11-26T22:58:44.983Z [swagger.container.js:189] [32minfo[39m: Swagger UI set up at /api-docs
+pipeshub-ai-1  | 2025-11-26T22:58:44.984Z [app.js:333] [32minfo[39m: Swagger documentation initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.984Z [notification.service.js:39] [32minfo[39m: Initializing Socket.IO server
+pipeshub-ai-1  | 2025-11-26T22:58:44.985Z [notification.service.js:84] [32minfo[39m: Socket.IO server initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.985Z [app.js:146] [32minfo[39m: Application initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.986Z [kb.relation.service.js:112] [32minfo[39m: Event producer initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.986Z [kb.relation.service.js:126] [32minfo[39m: Sync Event producer initialized successfully
+pipeshub-ai-1  | 2025-11-26T22:58:44.989Z [app.js:251] [32minfo[39m: Server started on port 3000
+pipeshub-ai-1  | 2025-11-26T22:58:44.990Z [app.js:294] [32minfo[39m: Running migration...
+pipeshub-ai-1  | 2025-11-26T22:58:44.990Z [app.js:296] [32minfo[39m: Migrating ai models configurations
+pipeshub-ai-1  | 2025-11-26T22:58:44.991Z [migration.service.js:40] [32minfo[39m: Running migration...
+pipeshub-ai-1  | 2025-11-26T22:58:44.991Z [migration.service.js:47] [32minfo[39m: Migrating ai models configurations
+pipeshub-ai-1  | [0;36mMongoose:[0m users.createIndex({ slug: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ agentKey: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ userId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m searches.createIndex({ query: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m notifications.createIndex({ orgId: [33m1[39m, status: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m users.createIndex({ email: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+pipeshub-ai-1  | 2025-11-26T22:58:45.037Z [migration.service.js:85] [32minfo[39m: Ô£à Ai models configurations migrated
+pipeshub-ai-1  | 2025-11-26T22:58:45.037Z [migration.service.js:42] [32minfo[39m: Ô£à Migration completed
+pipeshub-ai-1  | 2025-11-26T22:58:45.037Z [app.js:298] [32minfo[39m: Ô£à Ai models configurations migrated
+pipeshub-ai-1  | 2025-11-26T22:58:45.037Z [app.js:299] [32minfo[39m: Migration completed successfully
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ userId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ orgId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m searches.createIndex({ orgId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m notifications.createIndex({ assignedTo: [33m1[39m, isDeleted: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ orgId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m searches.createIndex({ userId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ initiator: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m searches.createIndex({ citationIds: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ agentKey: [33m1[39m, orgId: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m citations.createIndex({ content: [32m'text'[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m searches.createIndex({ query: [32m'text'[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ userId: [33m1[39m, agentKey: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ orgId: [33m1[39m, initiator: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m citations.createIndex({ [32m'metadata.recordId'[39m: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ isShared: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ [32m'messages.content'[39m: [32m'text'[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m citations.createIndex({ [32m'metadata.recordName'[39m: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m agentconversations.createIndex({ lastActivityAt: [33m-1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ initiator: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ orgId: [33m1[39m, initiator: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ isShared: [33m1[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.createIndex({ [32m'messages.content'[39m: [32m'text'[39m }, { background: [33mtrue[39m })
+pipeshub-ai-1  | [0;93m2025-11-26 22:58:50.422302211 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+pipeshub-ai-1  | [0;93m2025-11-26 22:58:52.560118585 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+pipeshub-ai-1  | [0;93m2025-11-26 22:58:52.763797431 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+pipeshub-ai-1  | [0;93m2025-11-26 22:58:52.875766757 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card0/device/vendor"[m
+pipeshub-ai-1  | /usr/local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.19) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+pipeshub-ai-1  |   warnings.warn(message, FutureWarning)
+pipeshub-ai-1  | 2025-11-26 22:58:53,250 - docling_service - INFO - [container.py:64] - ­ƒÜÇ Initializing DoclingAppContainer for docling_service
+pipeshub-ai-1  | 2025-11-26 22:58:53,279 - docling_service - INFO - [container.py:64] - ­ƒÜÇ Initializing DoclingAppContainer for docling_service
+pipeshub-ai-1  | INFO:     Started server process [49]
+pipeshub-ai-1  | INFO:     Waiting for application startup.
+pipeshub-ai-1  | 2025-11-26 22:58:53,337 - docling_service - INFO - [docling.py:38] - ­ƒÜÇ Initializing Docling service resources
+pipeshub-ai-1  | 2025-11-26 22:58:53,337 - docling_service - INFO - [docling.py:43] - Ô£à Docling service configuration initialized
+pipeshub-ai-1  | 2025-11-26 22:58:53,351 - docling_service - INFO - [docling_service.py:50] - Ô£à Docling service initialized successfully
+pipeshub-ai-1  | INFO:     Application startup complete.
+pipeshub-ai-1  | INFO:     Uvicorn running on http://0.0.0.0:8081 (Press CTRL+C to quit)
+pipeshub-ai-1  | /usr/local/lib/python3.10/site-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.19) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+pipeshub-ai-1  |   warnings.warn(message, FutureWarning)
+pipeshub-ai-1  | 2025-11-26 22:58:54,386 - query_service - INFO - [container.py:64] - ­ƒÜÇ Initializing QueryAppContainer for query_service
+pipeshub-ai-1  | 2025-11-26 22:58:54,410 - indexing_service - INFO - [container.py:64] - ­ƒÜÇ Initializing IndexingAppContainer for indexing_service
+pipeshub-ai-1  | 2025-11-26 22:58:54,427 - indexing_service - INFO - [container.py:64] - ­ƒÜÇ Initializing IndexingAppContainer for indexing_service
+pipeshub-ai-1  | INFO:     Started server process [34]
+pipeshub-ai-1  | INFO:     Waiting for application startup.
+pipeshub-ai-1  | 2025-11-26 22:58:54,446 - indexing_service - INFO - [indexing.py:130] - ­ƒÜÇ Initializing application resources
+pipeshub-ai-1  | 2025-11-26 22:58:54,446 - indexing_service - INFO - [indexing.py:134] - Connecting to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:54,447 - etcd - INFO - [etcd3_connection_manager.py:76] - ­ƒöä Connecting to ETCD cluster at etcd:2379
+pipeshub-ai-1  | 2025-11-26 22:58:54,453 - etcd - INFO - [etcd3_connection_manager.py:86] - Ô£à Successfully connected to ETCD cluster
+pipeshub-ai-1  | 2025-11-26 22:58:54,455 - indexing_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:54,459 - indexing_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:54,461 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:54,465 - query_service - INFO - [container.py:64] - ­ƒÜÇ Initializing QueryAppContainer for query_service
+pipeshub-ai-1  | 2025-11-26 22:58:54,466 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:54,471 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:54,474 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | INFO:     Started server process [42]
+pipeshub-ai-1  | INFO:     Waiting for application startup.
+pipeshub-ai-1  | 2025-11-26 22:58:54,479 - query_service - INFO - [query_main.py:33] - ­ƒÜÇ Initializing application resources
+pipeshub-ai-1  | 2025-11-26 22:58:54,479 - query_service - INFO - [query_main.py:37] - Connecting to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:54,480 - etcd - INFO - [etcd3_connection_manager.py:76] - ­ƒöä Connecting to ETCD cluster at etcd:2379
+pipeshub-ai-1  | 2025-11-26 22:58:54,480 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:54,485 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:54,488 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:54,488 - etcd - INFO - [etcd3_connection_manager.py:86] - Ô£à Successfully connected to ETCD cluster
+pipeshub-ai-1  | 2025-11-26 22:58:54,490 - query_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:54,495 - query_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:54,497 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:54,497 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:54,500 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:54,502 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:54,506 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:54,509 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:54,514 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:54,516 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:54,519 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:54,519 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:54,522 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:54,522 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:54,525 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:54,530 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:54,531 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:54,534 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:54,535 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:54,538 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,542 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,545 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:54,548 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,550 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:54,551 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:54,553 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:54,553 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,556 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:54,557 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,560 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:54,560 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,563 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,565 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:54,566 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:54,569 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:54,569 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:54,572 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:54,573 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,575 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:54,575 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,577 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,578 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:54,580 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:54,581 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,583 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:54,584 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:54,584 - indexing_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:54,587 - indexing_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:54,587 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,588 - indexing_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:54,590 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,591 - indexing_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:54,593 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:54,593 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,596 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,598 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:54,599 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:54,602 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:54,603 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:54,605 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:54,606 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:54,608 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:54,611 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:54,611 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,614 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:54,616 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:54,617 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:54,618 - query_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:54,619 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:54,620 - query_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:54,621 - query_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:54,624 - query_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:54,626 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:54,627 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:54,630 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:54,631 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:54,636 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:54,639 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:54,644 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:54,647 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:54,649 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:54,650 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:54,652 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:54,653 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:54,656 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:54,661 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:54,661 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:54,664 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:54,666 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:54,669 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,671 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,675 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:54,678 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,681 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:54,681 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:54,684 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,684 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:54,687 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,687 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:54,690 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,690 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:54,693 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,695 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:54,696 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:54,699 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:54,700 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:54,703 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:54,703 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,705 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:54,706 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,708 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,709 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:54,711 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:54,712 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,715 - indexing_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:54,715 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:54,716 - indexing_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:54,717 - indexing_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:54,718 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,719 - indexing_service - INFO - [indexing.py:140] - Ô£à Connected to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:54,719 - indexing_service - INFO - [health.py:18] - ­ƒöì Starting system health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,719 - indexing_service - INFO - [health.py:30] - ­ƒöì Starting etcd health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,721 - indexing_service - INFO - [health.py:44] - Ô£à etcd health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:54,721 - indexing_service - INFO - [health.py:65] - ­ƒöì Starting ArangoDB health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,721 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:54,722 - indexing_service - INFO - [health.py:85] - Ô£à ArangoDB health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:54,722 - indexing_service - INFO - [health.py:97] - ­ƒöì Starting Kafka health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,724 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,727 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:54,730 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:54,733 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:54,736 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:54,737 - indexing_service - INFO - [health.py:130] - Ô£à Kafka health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:54,737 - indexing_service - INFO - [health.py:154] - ­ƒöì Starting Redis health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,739 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:54,740 - indexing_service - INFO - [health.py:167] - Ô£à Redis health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:54,740 - indexing_service - INFO - [health.py:184] - ­ƒöì Starting vector db service health check...
+pipeshub-ai-1  | 2025-11-26 22:58:54,742 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:54,745 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | /app/python/app/services/vector_db/qdrant/qdrant.py:127: UserWarning: Api key is used with an insecure connection.
+pipeshub-ai-1  |   self.client = QdrantClient(
+pipeshub-ai-1  | 2025-11-26 22:58:54,748 - query_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:54,749 - query_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:54,751 - query_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:54,753 - query_service - INFO - [query_main.py:43] - Ô£à Connected to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:54,791 - query_service - INFO - [query_main.py:75] - ­ƒÜÇ Starting AI Config Kafka Consumer...
+pipeshub-ai-1  | /app/python/app/services/vector_db/qdrant/qdrant.py:127: UserWarning: Api key is used with an insecure connection.
+pipeshub-ai-1  |   self.client = QdrantClient(
+pipeshub-ai-1  | 2025-11-26 22:58:54,844 - connector_service - INFO - [container.py:64] - ­ƒÜÇ Initializing ConnectorAppContainer for connector_service
+pipeshub-ai-1  | 2025-11-26 22:58:54,880 - httpx - INFO - [_client.py:1025] - HTTP Request: GET http://qdrant:6333 "HTTP/1.1 200 OK"
+pipeshub-ai-1  | /app/python/app/services/vector_db/qdrant/qdrant.py:127: UserWarning: Qdrant client version 1.13.1 is incompatible with server version 1.15.5. Major versions should match and minor version difference must not exceed 1. Set check_version=False to skip version check.
+pipeshub-ai-1  |   self.client = QdrantClient(
+pipeshub-ai-1  | 2025-11-26 22:58:54,881 - qdrant_service - INFO - [qdrant.py:143] - Ô£à Connected to Qdrant successfully
+pipeshub-ai-1  | 2025-11-26 22:58:54,996 - connector_service - INFO - [container.py:64] - ­ƒÜÇ Initializing ConnectorAppContainer for connector_service
+pipeshub-ai-1  | 
+Fetching 30 files:   0%|          | 0/30 [00:00<?, ?it/s]2025-11-26 22:58:55,056 - httpx - INFO - [_client.py:1025] - HTTP Request: GET http://qdrant:6333 "HTTP/1.1 200 OK"
+pipeshub-ai-1  | /app/python/app/services/vector_db/qdrant/qdrant.py:127: UserWarning: Qdrant client version 1.13.1 is incompatible with server version 1.15.5. Major versions should match and minor version difference must not exceed 1. Set check_version=False to skip version check.
+pipeshub-ai-1  |   self.client = QdrantClient(
+pipeshub-ai-1  | 2025-11-26 22:58:55,057 - qdrant_service - INFO - [qdrant.py:143] - Ô£à Connected to Qdrant successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,063 - indexing_service - INFO - [health.py:195] - Ô£à vector db service is healthy!
+pipeshub-ai-1  | 2025-11-26 22:58:55,063 - indexing_service - INFO - [health.py:24] - Ô£à External services health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,077 - indexing_service - INFO - [indexing_main.py:212] - ­ƒÜÇ Starting application
+pipeshub-ai-1  | 2025-11-26 22:58:55,077 - indexing_service - INFO - [indexing_main.py:63] - ­ƒöä Checking for in-progress records to recover...
+pipeshub-ai-1  | 2025-11-26 22:58:55,078 - indexing_service - INFO - [indexing_main.py:76] - Ô£à No in-progress records found. Starting fresh.
+pipeshub-ai-1  | 2025-11-26 22:58:55,078 - indexing_service - INFO - [indexing_main.py:159] - ­ƒÜÇ Starting Entity Kafka Consumer...
+pipeshub-ai-1  | INFO:     Started server process [22]
+pipeshub-ai-1  | INFO:     Waiting for application startup.
+pipeshub-ai-1  | 2025-11-26 22:58:55,087 - connector_service - INFO - [connector.py:879] - ­ƒÜÇ Initializing application resources
+pipeshub-ai-1  | 2025-11-26 22:58:55,087 - connector_service - INFO - [health.py:18] - ­ƒöì Starting system health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,087 - connector_service - INFO - [health.py:30] - ­ƒöì Starting etcd health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,090 - connector_service - INFO - [health.py:44] - Ô£à etcd health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,090 - connector_service - INFO - [health.py:65] - ­ƒöì Starting ArangoDB health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,090 - etcd - INFO - [etcd3_connection_manager.py:76] - ­ƒöä Connecting to ETCD cluster at etcd:2379
+pipeshub-ai-1  | 2025-11-26 22:58:55,095 - etcd - INFO - [etcd3_connection_manager.py:86] - Ô£à Successfully connected to ETCD cluster
+pipeshub-ai-1  | 2025-11-26 22:58:55,098 - connector_service - INFO - [health.py:85] - Ô£à ArangoDB health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,098 - connector_service - INFO - [health.py:97] - ­ƒöì Starting Kafka health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,105 - connector_service - INFO - [health.py:130] - Ô£à Kafka health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,105 - connector_service - INFO - [health.py:154] - ­ƒöì Starting Redis health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,107 - connector_service - INFO - [health.py:167] - Ô£à Redis health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,107 - connector_service - INFO - [health.py:184] - ­ƒöì Starting vector db service health check...
+pipeshub-ai-1  | 2025-11-26 22:58:55,107 - connector_service - INFO - [health.py:188] - ÔÜá´©Å vector_db_service not available in this container, skipping health check
+pipeshub-ai-1  | 2025-11-26 22:58:55,108 - connector_service - INFO - [health.py:24] - Ô£à External services health check passed
+pipeshub-ai-1  | 2025-11-26 22:58:55,108 - connector_service - INFO - [connector.py:883] - Connecting to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:55,108 - connector_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:55,111 - connector_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:55,113 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:55,118 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:55,123 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:55,126 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:55,130 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:55,135 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:55,139 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:55,147 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,150 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:55,166 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:55,170 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:55,173 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:55,176 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:55,181 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:55,187 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:55,190 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,193 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,196 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:55,199 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,202 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:55,206 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,209 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,212 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,215 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,218 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:55,221 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:55,225 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:55,228 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:55,231 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,234 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:55,237 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:55,238 - connector_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,241 - connector_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:55,242 - connector_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:55,245 - connector_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:55,247 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:55,252 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:55,258 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:55,261 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:55,266 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:55,271 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:55,274 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:55,282 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,285 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:55,301 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:55,305 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:55,308 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:55,311 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:55,316 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:55,320 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:55,324 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,327 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,330 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:55,332 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,335 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:55,338 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,341 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,345 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,347 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,350 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:55,353 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:55,356 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:55,360 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:55,363 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,366 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:55,368 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:55,369 - connector_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,371 - connector_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:55,373 - connector_service - INFO - [connector.py:889] - Ô£à Connected to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:55,373 - connector_service - INFO - [connector.py:893] - Connecting to ArangoDB (KnowledgeBase)
+pipeshub-ai-1  | 2025-11-26 22:58:55,373 - connector_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:55,376 - connector_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:55,378 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:55,383 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:55,387 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:55,390 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:55,395 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:55,400 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:55,403 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:55,411 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,414 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:55,430 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:55,433 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:55,436 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:55,439 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:55,444 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:55,449 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:55,452 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,455 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,458 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:55,461 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,463 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:55,466 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,469 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,472 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,475 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,478 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:55,481 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:55,484 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:55,487 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:55,490 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,493 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:55,496 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:55,497 - connector_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,499 - connector_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:55,501 - connector_service - INFO - [base_arango_service.py:296] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:55,503 - connector_service - INFO - [base_arango_service.py:225] - ­ƒÜÇ Initializing collections...
+pipeshub-ai-1  | 2025-11-26 22:58:55,505 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection records
+pipeshub-ai-1  | 2025-11-26 22:58:55,510 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection files
+pipeshub-ai-1  | 2025-11-26 22:58:55,515 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection mails
+pipeshub-ai-1  | 2025-11-26 22:58:55,518 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection webpages
+pipeshub-ai-1  | 2025-11-26 22:58:55,523 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection users
+pipeshub-ai-1  | 2025-11-26 22:58:55,527 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection roles
+pipeshub-ai-1  | 2025-11-26 22:58:55,530 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection organizations
+pipeshub-ai-1  | 2025-11-26 22:58:55,539 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,542 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection departments
+pipeshub-ai-1  | 2025-11-26 22:58:55,558 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordGroups
+pipeshub-ai-1  | 2025-11-26 22:58:55,561 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentInstances
+pipeshub-ai-1  | 2025-11-26 22:58:55,565 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection agentTemplates
+pipeshub-ai-1  | 2025-11-26 22:58:55,568 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection tickets
+pipeshub-ai-1  | 2025-11-26 22:58:55,573 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection teams
+pipeshub-ai-1  | 2025-11-26 22:58:55,578 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:55,581 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,584 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,588 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:55,591 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,594 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:55,597 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,600 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,603 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,606 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,609 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:55,612 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:55,615 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:55,618 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection belongsToRecordGroup
+pipeshub-ai-1  | 2025-11-26 22:58:55,621 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection interCategoryRelations
+pipeshub-ai-1  | 
+Fetching 30 files:   3%|ÔûÄ         | 1/30 [00:00<00:04,  6.20it/s]
+Fetching 30 files:  30%|ÔûêÔûêÔûê       | 9/30 [00:00<00:00, 34.16it/s]
+Fetching 30 files:  57%|ÔûêÔûêÔûêÔûêÔûêÔûï    | 17/30 [00:00<00:00, 43.67it/s]
+Fetching 30 files:  83%|ÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûÄ | 25/30 [00:00<00:00, 51.73it/s]
+Fetching 30 files: 100%|ÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûêÔûê| 30/30 [00:00<00:00, 51.83it/s]
+pipeshub-ai-1  | 2025-11-26 22:58:55,624 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:55,627 - connector_service - INFO - [base_arango_service.py:244] - Updating schema for collection permission
+pipeshub-ai-1  | 2025-11-26 22:58:55,628 - connector_service - INFO - [base_arango_service.py:258] - Ô£à Collections initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,630 - connector_service - INFO - [base_arango_service.py:351] - Knowledge base graph already exists - skipping creation
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [connector.py:899] - Ô£à Connected to ArangoDB (KnowledgeBase)
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [connector.py:903] - Ô£à Container initialization completed successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [connector.py:905] - ­ƒöä Running Knowledge Base migration...
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [connector.py:854] - ­ƒöì Checking if Knowledge Base migration is needed...
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [migration_service.py:50] - ­ƒÜÇ Starting Knowledge Base migration from old to new system
+pipeshub-ai-1  | 2025-11-26 22:58:55,632 - connector_service - INFO - [migration_service.py:107] - ­ƒöì Validating migration preconditions
+pipeshub-ai-1  | 2025-11-26 22:58:55,633 - connector_service - INFO - [migration_service.py:114] - Ô£à Old KB collection 'knowledgeBase' not found - no migration needed
+pipeshub-ai-1  | 2025-11-26 22:58:55,633 - connector_service - INFO - [migration_service.py:59] - Ô£à No migration needed - old KB collection not found
+pipeshub-ai-1  | 2025-11-26 22:58:55,633 - connector_service - INFO - [migration_service.py:670] - ­ƒöä Updating graph structure
+pipeshub-ai-1  | 2025-11-26 22:58:55,636 - connector_service - INFO - [migration_service.py:681] - Ô£à Graph 'knowledgeGraph' already exists, ensuring vertices are updated.
+pipeshub-ai-1  | 2025-11-26 22:58:55,636 - connector_service - INFO - [migration_service.py:632] - ­ƒöä Updating graph vertices to match new structure
+pipeshub-ai-1  | 2025-11-26 22:58:55,638 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: permissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,640 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: belongsTo
+pipeshub-ai-1  | 2025-11-26 22:58:55,642 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: inheritPermissions
+pipeshub-ai-1  | 2025-11-26 22:58:55,644 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: orgDepartmentRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,646 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: belongsToDepartment
+pipeshub-ai-1  | 2025-11-26 22:58:55,648 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: belongsToCategory
+pipeshub-ai-1  | 2025-11-26 22:58:55,650 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: belongsToTopic
+pipeshub-ai-1  | 2025-11-26 22:58:55,652 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: belongsToLanguage
+pipeshub-ai-1  | 2025-11-26 22:58:55,654 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: interCategoryRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,656 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: permissionsToKB
+pipeshub-ai-1  | 2025-11-26 22:58:55,658 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: isOfType
+pipeshub-ai-1  | 2025-11-26 22:58:55,660 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: recordRelations
+pipeshub-ai-1  | 2025-11-26 22:58:55,662 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: userDriveRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,664 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: userAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,667 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: orgAppRelation
+pipeshub-ai-1  | 2025-11-26 22:58:55,669 - connector_service - INFO - [migration_service.py:588] - ­ƒöä Updating edge definition: permission
+pipeshub-ai-1  | 2025-11-26 22:58:55,671 - connector_service - INFO - [migration_service.py:661] - Ô£à Graph vertices updated successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,671 - connector_service - INFO - [migration_service.py:684] - Ô£à Graph structure updated successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,671 - connector_service - INFO - [migration_service.py:692] - ­ƒº╣ Starting cleanup of old collections
+pipeshub-ai-1  | 2025-11-26 22:58:55,674 - connector_service - INFO - [migration_service.py:707] - ÔÅ¡´©Å No old collections found - skipping cleanup
+pipeshub-ai-1  | 2025-11-26 22:58:55,674 - connector_service - INFO - [migration_service.py:820] - Ô£à KB Migration: No migration needed - old KB collection not found
+pipeshub-ai-1  | 2025-11-26 22:58:55,674 - connector_service - INFO - [connector.py:864] - Ô£à No Knowledge Base migration needed
+pipeshub-ai-1  | 2025-11-26 22:58:55,725 - app.connectors.core.base.token_service.token_refresh_service - INFO - [token_refresh_service.py:33] - Starting token refresh service
+pipeshub-ai-1  | 2025-11-26 22:58:55,725 - connector_service - INFO - [base_arango_service.py:4964] - ­ƒÜÇ Getting all documents from collection: apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,726 - app.connectors.core.base.token_service.startup_service - INFO - [startup_service.py:30] - Startup services initialized successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connectors_main.py:181] - ­ƒöº Initializing Connector Registry...
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: OneDrive
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: SharePoint Online
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Outlook
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Confluence
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Jira
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Dropbox
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: ServiceNow
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Web
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: BookStack
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Slack
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Calendar
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Meet
+pipeshub-ai-1  | 2025-11-26 22:58:55,727 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Forms
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Slides
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Docs
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Zendesk
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Linear
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: S3
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Notion
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Airtable
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Azure Blob
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connectors_main.py:191] - Ô£à Connectors registered
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Drive
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connector_registry.py:119] - Registered connector: Gmail
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [connectors_main.py:194] - Registered 23 connectors
+pipeshub-ai-1  | 2025-11-26 22:58:55,728 - connector_service - INFO - [base_arango_service.py:4964] - ­ƒÜÇ Getting all documents from collection: apps
+pipeshub-ai-1  | 2025-11-26 22:58:55,730 - connector_service - INFO - [connector_registry.py:375] - Registry and database are already in sync
+pipeshub-ai-1  | 2025-11-26 22:58:55,730 - connector_service - INFO - [connectors_main.py:198] - Ô£à Connector registry synchronized with database
+pipeshub-ai-1  | 2025-11-26 22:58:55,730 - connector_service - INFO - [connectors_main.py:345] - Ô£à Connector registry initialized and synchronized with database
+pipeshub-ai-1  | 2025-11-26 22:58:55,730 - connector_service - INFO - [connectors_main.py:211] - ­ƒÜÇ Starting Messaging Producer...
+pipeshub-ai-1  | 2025-11-26 22:58:55,736 - connector_service - INFO - [producer.py:41] - Ô£à Kafka producer initialized and started with client_id: messaging_producer_client
+pipeshub-ai-1  | 2025-11-26 22:58:55,736 - connector_service - INFO - [connectors_main.py:226] - Ô£à Messaging producer started and attached to container
+pipeshub-ai-1  | 2025-11-26 22:58:55,736 - connector_service - INFO - [connectors_main.py:350] - Ô£à Messaging producer started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:55,736 - connector_service - INFO - [connectors_main.py:239] - ­ƒÜÇ Starting Entity Kafka Consumer...
+pipeshub-ai-1  | 2025-11-26 22:58:55,736 - aiokafka.consumer.subscription_state - INFO - [subscription_state.py:110] - Updating subscribed topics to: frozenset({'entity-events'})
+pipeshub-ai-1  | 2025-11-26 22:58:55,767 - aiokafka.cluster - WARNING - [cluster.py:278] - Topic entity-events is not available during auto-create initialization
+pipeshub-ai-1  | 2025-11-26 22:58:55,859 - query_service - INFO - [retrieval_service.py:83] - Retrieval service initialized with collection name: records
+pipeshub-ai-1  | 2025-11-26 22:58:55,859 - aiokafka.consumer.subscription_state - INFO - [subscription_state.py:110] - Updating subscribed topics to: frozenset({'entity-events'})
+pipeshub-ai-1  | 2025-11-26 22:58:55,869 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:55,882 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:55,974 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:55,986 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,079 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,090 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,183 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,194 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,287 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,297 - aiokafka.consumer.group_coordinator - ERROR - [group_coordinator.py:575] - Group Coordinator Request failed: [Error 15] GroupCoordinatorNotAvailableError
+pipeshub-ai-1  | 2025-11-26 22:58:56,393 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:594] - Discovered coordinator 1 for group entity_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,393 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:415] - Revoking previously assigned partitions set() for group entity_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,393 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1281] - (Re-)joining group entity_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,401 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:594] - Discovered coordinator 1 for group aiconfig_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,401 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:415] - Revoking previously assigned partitions set() for group aiconfig_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,401 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1281] - (Re-)joining group aiconfig_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,409 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1360] - Joined group 'entity_consumer_group' (generation 1) with member_id entity_consumer_client-a664964c-9329-45fd-b11a-c989bcaacfc3
+pipeshub-ai-1  | 2025-11-26 22:58:56,409 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1368] - Elected group leader -- performing partition assignments using roundrobin
+pipeshub-ai-1  | 2025-11-26 22:58:56,410 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1360] - Joined group 'aiconfig_consumer_group' (generation 1) with member_id aiconfig_consumer_client-212309a8-0fdc-4802-8408-25f3ee115a1f
+pipeshub-ai-1  | 2025-11-26 22:58:56,410 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1368] - Elected group leader -- performing partition assignments using roundrobin
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1519] - Successfully synced group entity_consumer_group with generation 1
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1519] - Successfully synced group aiconfig_consumer_group with generation 1
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:506] - Setting newly assigned partitions {TopicPartition(topic='entity-events', partition=0)} for group aiconfig_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:506] - Setting newly assigned partitions {TopicPartition(topic='entity-events', partition=0)} for group entity_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - query_service - INFO - [consumer.py:65] - Successfully initialized aiokafka consumer
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - connector_service - INFO - [consumer.py:65] - Successfully initialized aiokafka consumer
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - connector_service - INFO - [consumer.py:96] - Started Kafka consumer task
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - connector_service - INFO - [connectors_main.py:249] - Ô£à Entity Kafka consumer started
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - query_service - INFO - [consumer.py:96] - Started Kafka consumer task
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - connector_service - INFO - [connectors_main.py:252] - ­ƒÜÇ Starting Sync Kafka Consumer...
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - query_service - INFO - [query_main.py:85] - Ô£à AI Config Kafka consumer started
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - query_service - INFO - [query_main.py:87] - Ô£à All 1 Kafka consumers started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:56,433 - query_service - INFO - [query_main.py:135] - Ô£à All Kafka consumers started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:56,434 - aiokafka.consumer.subscription_state - INFO - [subscription_state.py:110] - Updating subscribed topics to: frozenset({'sync-events'})
+pipeshub-ai-1  | 2025-11-26 22:58:56,434 - connector_service - INFO - [consumer.py:202] - Starting Kafka consumer loop
+pipeshub-ai-1  | 2025-11-26 22:58:56,435 - query_service - INFO - [query_main.py:147] - Found organizations in the system
+pipeshub-ai-1  | 2025-11-26 22:58:56,436 - query_service - INFO - [consumer.py:202] - Starting Kafka consumer loop
+pipeshub-ai-1  | 2025-11-26 22:58:56,437 - query_service - INFO - [retrieval_service.py:139] - Using embedding model: text-embedding-3-large
+pipeshub-ai-1  | 2025-11-26 22:58:56,437 - query_service - INFO - [retrieval_service.py:145] - No default embedding model found, using first available provider
+pipeshub-ai-1  | 2025-11-26 22:58:56,437 - aimodels - INFO - [aimodels.py:90] - Getting embedding model: provider=openAI, model_name=text-embedding-3-large
+pipeshub-ai-1  | 2025-11-26 22:58:56,449 - aiokafka.cluster - WARNING - [cluster.py:278] - Topic sync-events is not available during auto-create initialization
+pipeshub-ai-1  | 2025-11-26 22:58:56,554 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:594] - Discovered coordinator 1 for group sync_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,554 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:415] - Revoking previously assigned partitions set() for group sync_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,554 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1281] - (Re-)joining group sync_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,556 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1360] - Joined group 'sync_consumer_group' (generation 1) with member_id sync_consumer_client-f8cfb6ae-3e66-4aea-9d10-7908bd0a6d88
+pipeshub-ai-1  | 2025-11-26 22:58:56,556 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1368] - Elected group leader -- performing partition assignments using roundrobin
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1519] - Successfully synced group sync_consumer_group with generation 1
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:506] - Setting newly assigned partitions {TopicPartition(topic='sync-events', partition=0)} for group sync_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - connector_service - INFO - [consumer.py:65] - Successfully initialized aiokafka consumer
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - connector_service - INFO - [consumer.py:96] - Started Kafka consumer task
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - connector_service - INFO - [connectors_main.py:262] - Ô£à Sync Kafka consumer started
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - connector_service - INFO - [connectors_main.py:264] - Ô£à All 2 Kafka consumers started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:56,558 - connector_service - INFO - [connectors_main.py:359] - Ô£à All Kafka consumers started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:56,559 - connector_service - INFO - [consumer.py:202] - Starting Kafka consumer loop
+pipeshub-ai-1  | 2025-11-26 22:58:56,560 - connector_service - INFO - [connectors_main.py:77] - Found 1 organizations in the system
+pipeshub-ai-1  | 2025-11-26 22:58:56,562 - connector_service - INFO - [connectors_main.py:84] - App names: []
+pipeshub-ai-1  | INFO:     Application startup complete.
+pipeshub-ai-1  | INFO:     Uvicorn running on http://0.0.0.0:8088 (Press CTRL+C to quit)
+pipeshub-ai-1  | 2025-11-26 22:58:56,583 - connector_service - INFO - [connector.py:148] - Ô£à Successfully initialized services for individual account
+pipeshub-ai-1  | 2025-11-26 22:58:56,583 - connector_service - INFO - [connectors_main.py:94] - Processing organization 6920b58c68baaf9103e51822 with account type individual
+pipeshub-ai-1  | 2025-11-26 22:58:56,583 - connector_service - INFO - [base_arango_service.py:4734] - ­ƒÜÇ Fetching all users from database
+pipeshub-ai-1  | 2025-11-26 22:58:56,584 - connector_service - INFO - [base_arango_service.py:4749] - Ô£à Successfully fetched 1 users
+pipeshub-ai-1  | 2025-11-26 22:58:56,584 - connector_service - INFO - [connectors_main.py:100] - User: [{'_key': '19a32012-9fd7-49f9-909b-91f4fcd09bec', '_id': 'users/19a32012-9fd7-49f9-909b-91f4fcd09bec', '_rev': '_kodDVjW---', 'userId': '6920b58c68baaf9103e51823', 'orgId': '6920b58c68baaf9103e51822', 'email': 'zak.hodgson@andrew-moore.com', 'fullName': 'Zak Hodgson', 'firstName': '', 'middleName': '', 'lastName': '', 'designation': '', 'businessPhones': [], 'isActive': True, 'createdAtTimestamp': 1763751308957, 'updatedAtTimestamp': 1763751321172}]
+pipeshub-ai-1  | 2025-11-26 22:58:56,584 - connector_service - INFO - [connectors_main.py:105] - Found 1 users for organization 6920b58c68baaf9103e51822
+pipeshub-ai-1  | 2025-11-26 22:58:56,585 - connector_service - INFO - [connectors_main.py:171] - Ô£à Sync services resumed for org 6920b58c68baaf9103e51822
+pipeshub-ai-1  | 2025-11-26 22:58:56,585 - connector_service - INFO - [connectors_main.py:172] - Ô£à Sync services resumed for all orgs
+pipeshub-ai-1  | 2025-11-26 22:58:56,704 - indexing_service - INFO - [domain_extraction.py:74] - ­ƒÜÇ self.arango_service: <app.connectors.services.base_arango_service.BaseArangoService object at 0x7f4cd9efbf70>
+pipeshub-ai-1  | 2025-11-26 22:58:56,704 - indexing_service - INFO - [domain_extraction.py:75] - ­ƒÜÇ self.arango_service.db: <StandardDatabase es>
+pipeshub-ai-1  | 2025-11-26 22:58:56,705 - indexing_service - INFO - [processor.py:92] - ­ƒÜÇ Initializing Processor
+pipeshub-ai-1  | 2025-11-26 22:58:56,706 - indexing_service - INFO - [events.py:24] - ­ƒÜÇ Initializing EventProcessor
+pipeshub-ai-1  | 2025-11-26 22:58:56,706 - aiokafka.consumer.subscription_state - INFO - [subscription_state.py:110] - Updating subscribed topics to: frozenset({'record-events'})
+pipeshub-ai-1  | 2025-11-26 22:58:56,726 - aiokafka.cluster - WARNING - [cluster.py:278] - Topic record-events is not available during auto-create initialization
+pipeshub-ai-1  | 2025-11-26 22:58:56,831 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:594] - Discovered coordinator 1 for group records_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,831 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:415] - Revoking previously assigned partitions set() for group records_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,831 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1281] - (Re-)joining group records_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,833 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1360] - Joined group 'records_consumer_group' (generation 1) with member_id records_consumer_client-b18e2c33-d31e-4fe7-bf6f-512a3128141b
+pipeshub-ai-1  | 2025-11-26 22:58:56,833 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1368] - Elected group leader -- performing partition assignments using roundrobin
+pipeshub-ai-1  | 2025-11-26 22:58:56,835 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:1519] - Successfully synced group records_consumer_group with generation 1
+pipeshub-ai-1  | 2025-11-26 22:58:56,835 - aiokafka.consumer.group_coordinator - INFO - [group_coordinator.py:506] - Setting newly assigned partitions {TopicPartition(topic='record-events', partition=0)} for group records_consumer_group
+pipeshub-ai-1  | 2025-11-26 22:58:56,835 - indexing_service - INFO - [consumer.py:65] - Successfully initialized aiokafka consumer
+pipeshub-ai-1  | 2025-11-26 22:58:56,836 - indexing_service - INFO - [consumer.py:96] - Started Kafka consumer task
+pipeshub-ai-1  | 2025-11-26 22:58:56,836 - indexing_service - INFO - [indexing_main.py:173] - Ô£à Record Kafka consumer started
+pipeshub-ai-1  | 2025-11-26 22:58:56,836 - indexing_service - INFO - [indexing_main.py:225] - Ô£à All Kafka consumers started successfully
+pipeshub-ai-1  | 2025-11-26 22:58:56,836 - indexing_service - INFO - [consumer.py:202] - Starting Kafka consumer loop
+pipeshub-ai-1  | INFO:     Application startup complete.
+pipeshub-ai-1  | INFO:     Uvicorn running on http://0.0.0.0:8091 (Press CTRL+C to quit)
+pipeshub-ai-1  | 2025-11-26 22:58:57,451 - query_service - INFO - [retrieval_service.py:155] - Embedding provider: openAI
+pipeshub-ai-1  | 2025-11-26 22:58:57,451 - query_service - INFO - [retrieval_service.py:166] - Using embedding model: text-embedding-3-large
+pipeshub-ai-1  | 2025-11-26 22:58:57,451 - query_service - INFO - [query_main.py:157] - Creating ToolsDBManager...
+pipeshub-ai-1  | 2025-11-26 22:58:57,451 - query_service - INFO - [query_main.py:161] - Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:57,452 - query_service - INFO - [arango.py:46] - ­ƒÜÇ Connecting to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:57,452 - query_service - INFO - [arango.py:62] - Connecting to ArangoDB at: http://arango:8529
+pipeshub-ai-1  | 2025-11-26 22:58:57,452 - query_service - INFO - [arango.py:81] - System database connected
+pipeshub-ai-1  | 2025-11-26 22:58:57,453 - query_service - INFO - [arango.py:92] - Database 'es' already exists
+pipeshub-ai-1  | 2025-11-26 22:58:57,454 - query_service - INFO - [arango.py:95] - Connecting to database 'es'...
+pipeshub-ai-1  | 2025-11-26 22:58:57,454 - query_service - INFO - [arango.py:99] - Ô£à Database connected successfully
+pipeshub-ai-1  | 2025-11-26 22:58:57,457 - query_service - INFO - [query_main.py:169] - Using tools warmup to register all available tools...
+pipeshub-ai-1  | 2025-11-26 22:58:57,458 - query_service - INFO - [discovery.py:167] - Starting tools discovery process
+pipeshub-ai-1  | 2025-11-26 22:58:57,458 - query_service - INFO - [discovery.py:187] - Processing app: confluence
+pipeshub-ai-1  | 2025-11-26 22:58:57,498 - query_service - INFO - [discovery.py:187] - Processing app: jira
+pipeshub-ai-1  | 2025-11-26 22:58:57,593 - query_service - INFO - [discovery.py:187] - Processing app: slack
+pipeshub-ai-1  | 2025-11-26 22:58:57,671 - query_service - INFO - [discovery.py:187] - Processing app: notion
+pipeshub-ai-1  | 2025-11-26 22:58:57,683 - query_service - INFO - [discovery.py:187] - Processing app: calculator
+pipeshub-ai-1  | 2025-11-26 22:58:57,684 - query_service - INFO - [discovery.py:187] - Processing app: utility
+pipeshub-ai-1  | 2025-11-26 22:58:57,685 - query_service - INFO - [discovery.py:187] - Processing app: google
+pipeshub-ai-1  | 2025-11-26 22:58:57,717 - query_service - INFO - [discovery.py:187] - Processing app: microsoft
+pipeshub-ai-1  | 2025-11-26 22:58:57,855 - query_service - INFO - [discovery.py:187] - Processing app: linear
+pipeshub-ai-1  | 2025-11-26 22:58:57,872 - query_service - INFO - [discovery.py:187] - Processing app: dropbox
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [discovery.py:202] - Tools discovery completed!
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [discovery.py:203] - Total tools registered: 152
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [discovery.py:204] - Modules imported: 20
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [query_main.py:173] - Discovery completed: 152 tools registered
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [query_main.py:176] - Setting up sample tool registry...
+pipeshub-ai-1  | 2025-11-26 22:58:57,874 - query_service - INFO - [query_main.py:181] - Syncing tools from registry to ArangoDB...
+pipeshub-ai-1  | 2025-11-26 22:58:58,018 - query_service - INFO - [tools_db.py:233] - Successfully synced 152 tools to ArangoDB
+pipeshub-ai-1  | 2025-11-26 22:58:58,019 - query_service - INFO - [query_main.py:186] - Tools in registry: ['confluence.create_page', 'confluence.get_page_content', 'confluence.get_pages_in_space', 'confluence.update_page_title', 'confluence.get_child_pages', 'confluence.search_pages', 'confluence.get_spaces', 'confluence.get_space', 'confluence.get_page_versions', 'confluence.invite_user', 'jira.validate_connection', 'jira.convert_text_to_adf', 'jira.create_issue', 'jira.get_projects', 'jira.get_project', 'jira.get_issues', 'jira.get_issue', 'jira.search_issues', 'jira.add_comment', 'jira.get_comments', 'jira.search_users', 'jira.get_assignable_users', 'jira.get_project_metadata', 'slack.send_message', 'slack.get_channel_history', 'slack.get_channel_info', 'slack.get_user_info', 'slack.fetch_channels', 'slack.search_all', 'slack.get_channel_members', 'slack.get_channel_members_by_id', 'slack.resolve_user', 'slack.check_token_info', 'slack.send_direct_message', 'slack.send_message_with_formatting', 'slack.reply_to_message', 'slack.send_message_to_multiple_channels', 'slack.upload_file', 'slack.add_reaction', 'slack.create_channel', 'slack.invite_users_to_channel', 'slack.search_messages', 'slack.set_user_status', 'slack.schedule_message', 'slack.create_poll', 'slack.archive_channel', 'slack.pin_message', 'slack.get_unread_messages', 'slack.get_scheduled_messages', 'slack.send_message_with_mentions', 'slack.get_users_list', 'slack.get_user_conversations', 'slack.get_user_groups', 'slack.get_user_group_info', 'slack.get_user_channels', 'slack.delete_message', 'slack.update_message', 'slack.get_message_permalink', 'slack.get_reactions', 'slack.remove_reaction', 'slack.get_pinned_messages', 'slack.unpin_message', 'slack.rename_channel', 'slack.set_channel_topic', 'slack.set_channel_purpose', 'slack.mark_channel_read', 'slack.get_thread_replies', 'notion.create_page', 'notion.get_page', 'notion.update_page', 'notion.delete_page', 'notion.search', 'notion.list_users', 'notion.retrieve_user', 'notion.create_database', 'notion.query_database', 'notion.get_database', 'calculator.calculate_single_operand', 'calculator.calculate_two_operands', 'gmail.reply', 'gmail.draft_email', 'gmail.send_email', 'gmail.search_emails', 'gmail.get_email_details', 'gmail.get_email_attachments', 'gmail.download_email_attachment', 'gmail.get_user_profile', 'calendar.get_calendar_events', 'calendar.create_calendar_event', 'calendar.update_calendar_event', 'calendar.delete_calendar_event', 'calendar.get_calendar_list', 'calendar.get_calendar_list_by_id', 'drive.get_files_list', 'drive.get_file_details', 'drive.create_folder', 'drive.delete_file', 'drive.copy_file', 'drive.search_files', 'drive.get_drive_info', 'drive.get_shared_drives', 'drive.download_file', 'drive.upload_file', 'drive.get_file_permissions', 'meet.start_instant_meeting', 'meet.join_meeting_by_code', 'meet.schedule_meeting_with_calendar', 'meet.find_available_time', 'meet.update_scheduled_meeting', 'meet.cancel_meeting', 'meet.get_meeting_details', 'meet.list_upcoming_meetings', 'meet.create_meeting_space', 'meet.update_meeting_space', 'meet.get_meeting_space', 'meet.end_active_conference', 'meet.get_conference_records', 'meet.get_conference_record_details', 'meet.get_conference_participants', 'meet.get_conference_recordings', 'meet.get_conference_transcripts', 'meet.get_transcript_entries', 'meet.get_meeting_summary', 'onedrive.get_drives', 'onedrive.get_drive', 'onedrive.get_files', 'onedrive.get_file', 'onedrive.upload_file', 'onedrive.delete_file', 'sharepointonline.get_sites', 'sharepointonline.get_site', 'sharepointonline.get_lists', 'sharepointonline.get_drives', 'sharepointonline.get_pages', 'linear.get_viewer', 'linear.get_user', 'linear.get_teams', 'linear.get_team', 'linear.get_issues', 'linear.get_issue', 'linear.create_issue', 'linear.update_issue', 'linear.delete_issue', 'dropbox.get_account_info', 'dropbox.list_folder', 'dropbox.get_metadata', 'dropbox.download_file', 'dropbox.upload_file', 'dropbox.delete_file', 'dropbox.create_folder', 'dropbox.search', 'dropbox.get_shared_link']
+pipeshub-ai-1  | INFO:     Application startup complete.
+pipeshub-ai-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+pipeshub-ai-1  | 2025-11-26T23:00:59.303Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET / HTTP/1.1" 200 526 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.318Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 200 526 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.327Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/index-Dx2JhkMK.css HTTP/1.1" 200 16695 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.331Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/index-Duwqw49o.js HTTP/1.1" 200 1151857 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.425Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/common-CAObGQSC.js HTTP/1.1" 200 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | [0;36mMongoose:[0m org.findOne({ _id: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m }, {})
+pipeshub-ai-1  | 2025-11-26T23:00:59.522Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /logo/logo-full.svg HTTP/1.1" 200 38527 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | [0;36mMongoose:[0m users.findOne({ _id: ObjectId("6920b58c68baaf9103e51823"), orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m}, {})
+pipeshub-ai-1  | [0;36mMongoose:[0m users.findOne({ _id: ObjectId("6920b58c68baaf9103e51823"), orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m}, {})
+pipeshub-ai-1  | 2025-11-26T23:00:59.528Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /favicon.ico HTTP/1.1" 200 15406 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.530Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/users/6920b58c68baaf9103e51823 HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.530Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059512-b48c1fc41db2a3e63998 StatusCode: 304 Method: GET Path: /6920b58c68baaf9103e51823 (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:00:59.543Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/public-sans-latin-wght-normal-RswtdM0r.woff2 HTTP/1.1" 200 26244 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | [0;36mMongoose:[0m userGroups.find({ orgId: ObjectId("6920b58c68baaf9103e51822"), users: { [32m'$in'[39m: [ ObjectId("6920b58c68baaf9103e51823") ] }, isDeleted: [33mfalse[39m}, { projection: { name: [33m1[39m, type: [33m1[39m } })
+pipeshub-ai-1  | 2025-11-26T23:00:59.551Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/userGroups/users/6920b58c68baaf9103e51823 HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.564Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/UserContext-BMJdPYo-.js HTTP/1.1" 200 437 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.564Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/chatbot-CH72w2AK.js HTTP/1.1" 200 67871 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.566Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/file-type-zip-B5Iz73i-.js HTTP/1.1" 200 8578 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.569Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/chevron-right-BXCiZ03V.js HTTP/1.1" 200 781 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.570Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/use-connectors-BZZbKbs1.js HTTP/1.1" 200 1145 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.571Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/chat-input-DAihrQNZ.js HTTP/1.1" 200 26423 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.572Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/services-configuration-service-BxRHGz0r.js HTTP/1.1" 200 2298 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.572Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/api-CmhGoiOP.js HTTP/1.1" 200 8836 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.577Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/chevron-up-0m451sHa.js HTTP/1.1" 200 6233 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.577Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Chip-DSInZDYB.js HTTP/1.1" 200 8578 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.578Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/image-highlighter-D2v1YjTF.css HTTP/1.1" 200 22696 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.580Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/ListItemButton-C64nXRNK.js HTTP/1.1" 200 3430 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.580Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/DialogTitle-CCADfTOH.js HTTP/1.1" 200 5750 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.583Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/DialogActions-hFMmaP60.js HTTP/1.1" 200 786 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.584Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Skeleton-B_vAPmPZ.js HTTP/1.1" 200 3127 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.584Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/chat-message-area-90H8nnij.js HTTP/1.1" 200 450596 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.585Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/filter-CnRVwIO4.js HTTP/1.1" 200 282 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.586Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/plus-3dUEsxto.js HTTP/1.1" 200 120 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.589Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/magnify-itWSuQ2o.js HTTP/1.1" 200 301 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.590Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/database-outline-CEMUvSel.js HTTP/1.1" 200 396 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.590Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/folder-DRWuUiCN.js HTTP/1.1" 200 169 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.592Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/archive-outline-CgNsZBx-.js HTTP/1.1" 200 300 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.592Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/file-document-NyfHhYE5.js HTTP/1.1" 200 193 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.593Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/check-xdqQXyOT.js HTTP/1.1" 200 139 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.595Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/close-FFdS7ZA7.js HTTP/1.1" 200 194 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.598Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/delete-CS7Pix6y.js HTTP/1.1" 200 158 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.599Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/dots-vertical-BDHFBiOf.js HTTP/1.1" 200 268 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.600Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/delete-outline-CuwQpTV8.js HTTP/1.1" 200 174 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.600Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/alert-circle-outline-BmdAP2xV.js HTTP/1.1" 200 251 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.602Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/refresh-D2DUi-lq.js HTTP/1.1" 200 274 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.603Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/account-outline-DPXzZ8Yd.js HTTP/1.1" 200 320 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.606Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/open-in-new-ZmCbB4Uq.js HTTP/1.1" 200 206 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.607Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/domain-DPmvo7Ii.js HTTP/1.1" 200 248 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.607Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/folder-outline-DLb8bSf_.js HTTP/1.1" 200 327 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.608Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/file-document-outline-MosF5rP_.js HTTP/1.1" 200 190 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.609Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Tabs-C5B1647O.js HTTP/1.1" 200 15442 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.612Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/KeyboardArrowRight-CsPIDO7V.js HTTP/1.1" 200 268 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.614Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Autocomplete-DuecP3Gv.js HTTP/1.1" 200 22160 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.615Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/TableRow-CfATaWT4.js HTTP/1.1" 200 6715 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.616Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Checkbox-DsDq0oVh.js HTTP/1.1" 200 2317 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.617Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/dynamic-form-B3PZjdYP.js HTTP/1.1" 200 43182 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.619Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/FormControlLabel-BSUVRI96.js HTTP/1.1" 200 2447 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.620Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Grid-D5C91vwm.js HTTP/1.1" 200 5078 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.621Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/index-Chjiymov.js HTTP/1.1" 200 865 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.622Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/Stepper-B-8iSIPB.js HTTP/1.1" 200 9426 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.625Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/check-circle-UXFWhBLp.js HTTP/1.1" 200 196 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.626Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/eye-outline-ClSjAFYW.js HTTP/1.1" 200 297 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.627Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/file-type-image-Cdz_OQSA.js HTTP/1.1" 200 9839 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.628Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/share-variant-outline-CePWhf10.js HTTP/1.1" 200 596 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.629Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/pencil-7sv2flXF.js HTTP/1.1" 200 223 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.630Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/key-B6x5ORpd.js HTTP/1.1" 200 226 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.632Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/robot-Dz3aTMQq.js HTTP/1.1" 200 489 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.634Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/server-C2Tctcy_.js HTTP/1.1" 200 1419 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.635Z [connector.controllers.js:130] [32minfo[39m: Getting all active connectors for user 6920b58c68baaf9103e51823
+pipeshub-ai-1  | 2025-11-26T23:00:59.637Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/eye-fill-DFKMGeFi.js HTTP/1.1" 200 389 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.639Z [connector.controllers.js:153] [32minfo[39m: Getting all inactive connectors for user 6920b58c68baaf9103e51823
+pipeshub-ai-1  | 2025-11-26T23:00:59.640Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/check-circle-outline-DV2kL-kL.js HTTP/1.1" 200 259 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.641Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/brain-Dsk4NUAn.js HTTP/1.1" 200 1678 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.643Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /logo/logo-blue.svg HTTP/1.1" 200 38527 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.645Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/image-highlighter-CiSr68gj.js HTTP/1.1" 200 2165178 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26 23:00:59,660 - connector_service - INFO - [connectors_main.py:391] - Middleware request: /api/v1/connectors/active
+pipeshub-ai-1  | 2025-11-26 23:00:59,661 - connector_service - INFO - [connectors_main.py:391] - Middleware request: /api/v1/connectors/inactive
+pipeshub-ai-1  | 2025-11-26 23:00:59,662 - connector_service - INFO - [connectors_main.py:407] - Call Next
+pipeshub-ai-1  | 2025-11-26 23:00:59,663 - connector_service - INFO - [base_arango_service.py:4964] - ­ƒÜÇ Getting all documents from collection: apps
+pipeshub-ai-1  | Creating EtcdProvider
+pipeshub-ai-1  | 2025-11-26 23:00:59,666 - connector_service - INFO - [connectors_main.py:407] - Call Next
+pipeshub-ai-1  | 2025-11-26 23:00:59,666 - connector_service - INFO - [base_arango_service.py:4964] - ­ƒÜÇ Getting all documents from collection: apps
+pipeshub-ai-1  | INFO:     127.0.0.1:53530 - "GET /api/v1/connectors/active HTTP/1.1" 200 OK
+pipeshub-ai-1  | 2025-11-26T23:00:59.670Z [connector.service.command.js:37] [32minfo[39m: Connector service command success
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "url": "http://localhost:8088/api/v1/connectors/active",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "statusText": "OK"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | INFO:     127.0.0.1:53546 - "GET /api/v1/connectors/inactive HTTP/1.1" 200 OK
+pipeshub-ai-1  | 2025-11-26T23:00:59.672Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/connectors/active HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.672Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059634-83e23521ca34ff175174 StatusCode: 304 Method: GET Path: /active (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:00:59.673Z [connector.service.command.js:37] [32minfo[39m: Connector service command success
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "url": "http://localhost:8088/api/v1/connectors/inactive",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "statusText": "OK"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:00:59.674Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/connectors/inactive HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.674Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059638-3858a67465441585169d StatusCode: 304 Method: GET Path: /inactive (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | [0;36mMongoose:[0m users.find({ orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m }, {})
+pipeshub-ai-1  | [0;36mMongoose:[0m org.findOne({ _id: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m }, {})
+pipeshub-ai-1  | 2025-11-26T23:00:59.815Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/users HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.815Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059809-9906aa21fe538a860a77 StatusCode: 304 Method: GET Path: / (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | [0;36mMongoose:[0m users.findOne({ _id: ObjectId("6920b58c68baaf9103e51823"), orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m}, {})
+pipeshub-ai-1  | [0;36mMongoose:[0m users.findOne({ _id: ObjectId("6920b58c68baaf9103e51823"), orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m}, {})
+pipeshub-ai-1  | 2025-11-26T23:00:59.818Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/users/6920b58c68baaf9103e51823 HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.818Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059812-c4052c6c2228da91aa25 StatusCode: 304 Method: GET Path: /6920b58c68baaf9103e51823 (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | [0;36mMongoose:[0m org.findOne({ _id: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m }, { projection: { onBoardingStatus: [33m1[39m } })
+pipeshub-ai-1  | 2025-11-26T23:00:59.823Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/org/onboarding-status HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | [0;36mMongoose:[0m org.findOne({ _id: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m }, { projection: { onBoardingStatus: [33m1[39m } })
+pipeshub-ai-1  | 2025-11-26T23:00:59.829Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/org/onboarding-status HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.find({ [32m'$or'[39m: [ { userId: ObjectId("6920b58c68baaf9103e51823") }, { [32m'sharedWith.userId'[39m: ObjectId("6920b58c68baaf9103e51823") }, { isShared: [33mtrue[39m } ], orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m, isArchived: [33mfalse[39m, isShared: [33mfalse[39m}, { sort: { lastActivityAt: [33m-1[39m, _id: [33m-1[39m }, skip: [33m0[39m, limit: [33m20[39m, projection: { __v: [33m0[39m, messages: [33m0[39m }})
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.find({ [32m'$or'[39m: [ { [32m'sharedWith.userId'[39m: ObjectId("6920b58c68baaf9103e51823") }, { isShared: [33mtrue[39m } ], orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m, isArchived: [33mfalse[39m, initiator: { [32m'$ne'[39m: ObjectId("6920b58c68baaf9103e51823") }}, { sort: { lastActivityAt: [33m-1[39m, _id: [33m-1[39m }, skip: [33m0[39m, limit: [33m20[39m, projection: { __v: [33m0[39m, messages: [33m0[39m, sharedWith: [33m0[39m }})
+pipeshub-ai-1  | [0;36mMongoose:[0m conversations.countDocuments({ [32m'$or'[39m: [ { userId: ObjectId("6920b58c68baaf9103e51823") }, { [32m'sharedWith.userId'[39m: ObjectId("6920b58c68baaf9103e51823") }, { isShared: [33mtrue[39m } ], orgId: ObjectId("6920b58c68baaf9103e51822"), isDeleted: [33mfalse[39m, isArchived: [33mfalse[39m, isShared: [33mfalse[39m}, {})
+pipeshub-ai-1  | 2025-11-26T23:00:59.854Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/conversations/?page=1&limit=20&shared=false HTTP/1.1" 200 2460 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.854Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059844-0fbd654adc6dc43f53f4 StatusCode: 200 Method: GET Path: / (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:00:59.855Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/configurationManager/ai-models/available/llm HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.856Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059849-4dfdf1ae7275990435c7 StatusCode: 304 Method: GET Path: /ai-models/available/llm (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:00:59.858Z [kb_controllers.js:206] [32minfo[39m: Listing knowledge bases for user 6920b58c68baaf9103e51823 with pagination
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "page": 1,
+pipeshub-ai-1  |   "limit": 100,
+pipeshub-ai-1  |   "sortBy": "name",
+pipeshub-ai-1  |   "sortOrder": "asc"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26 23:00:59,859 - connector_service - INFO - [connectors_main.py:391] - Middleware request: /api/v1/kb/
+pipeshub-ai-1  | 2025-11-26 23:00:59,859 - connector_service - INFO - [connectors_main.py:407] - Call Next
+pipeshub-ai-1  | 2025-11-26 23:00:59,861 - connector_service - INFO - [kb_service.py:223] -  Listing knowledge bases for user 6920b58c68baaf9103e51823
+pipeshub-ai-1  | 2025-11-26 23:00:59,862 - connector_service - INFO - [kb_service.py:225] - Looking up user by user_id: 6920b58c68baaf9103e51823
+pipeshub-ai-1  | 2025-11-26 23:00:59,867 - connector_service - INFO - [base_arango_service.py:8183] - Ô£à Found 2 knowledge bases out of 2 total
+pipeshub-ai-1  | 2025-11-26 23:00:59,867 - connector_service - INFO - [kb_service.py:292] - Ô£à Found 2 knowledge bases (page 1/1)
+pipeshub-ai-1  | INFO:     127.0.0.1:53530 - "GET /api/v1/kb/?page=1&limit=100&sort_by=name&sort_order=asc HTTP/1.1" 200 OK
+pipeshub-ai-1  | 2025-11-26T23:00:59.868Z [connector.service.command.js:37] [32minfo[39m: Connector service command success
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "url": "http://localhost:8088/api/v1/kb/?page=1&limit=100&sort_by=name&sort_order=asc",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "statusText": "OK"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:00:59.868Z [kb_controllers.js:230] [32minfo[39m: Knowledge bases retrieved successfully
+pipeshub-ai-1  | 2025-11-26T23:00:59.869Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /api/v1/knowledgeBase/?page=1&limit=100&search= HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:00:59.869Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198059856-30a00a730e36364ea147 StatusCode: 304 Method: GET Path: / (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:00:59.938Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:00:59 +0000] "GET /assets/icons/connectors/kb.svg HTTP/1.1" 200 3000 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:01.868Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:01:01 +0000] "GET /assets/icons/connectors/kb.svg HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:04.581Z [kb_controllers.js:844] [32minfo[39m: Getting KB records
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "kbId": "65590061-7558-493e-bbc4-9c77a79419bf",
+pipeshub-ai-1  |   "userId": "6920b58c68baaf9103e51823",
+pipeshub-ai-1  |   "orgId": "6920b58c68baaf9103e51822",
+pipeshub-ai-1  |   "page": 1,
+pipeshub-ai-1  |   "limit": 20,
+pipeshub-ai-1  |   "sortBy": "createdAtTimestamp",
+pipeshub-ai-1  |   "sortOrder": "desc",
+pipeshub-ai-1  |   "requestId": "1764198064579-15f617f4d9fc8d576500"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26 23:01:04,582 - connector_service - INFO - [connectors_main.py:391] - Middleware request: /api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/children
+pipeshub-ai-1  | 2025-11-26 23:01:04,583 - connector_service - INFO - [connectors_main.py:407] - Call Next
+pipeshub-ai-1  | 2025-11-26 23:01:04,584 - connector_service - INFO - [kb_service.py:1461] - ­ƒöì Getting KB 65590061-7558-493e-bbc4-9c77a79419bf children with pagination (page 1, limit 20)
+pipeshub-ai-1  | 2025-11-26 23:01:04,586 - connector_service - INFO - [base_arango_service.py:7856] - ­ƒöì Checking permissions for user 19a32012-9fd7-49f9-909b-91f4fcd09bec on KB 65590061-7558-493e-bbc4-9c77a79419bf
+pipeshub-ai-1  | 2025-11-26 23:01:04,587 - connector_service - INFO - [base_arango_service.py:7879] - Ô£à Found permission: user 19a32012-9fd7-49f9-909b-91f4fcd09bec has role 'OWNER' on KB 65590061-7558-493e-bbc4-9c77a79419bf
+pipeshub-ai-1  | 2025-11-26 23:01:04,590 - connector_service - INFO - [base_arango_service.py:10765] - Ô£à Retrieved KB children with folders_first pagination: 1 items
+pipeshub-ai-1  | 2025-11-26 23:01:04,590 - connector_service - INFO - [kb_service.py:1541] - Ô£à KB children retrieved: 1 folders, 0 records
+pipeshub-ai-1  | INFO:     127.0.0.1:53562 - "GET /api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/children?page=1&limit=20&sort_by=createdAtTimestamp&sort_order=desc HTTP/1.1" 200 OK
+pipeshub-ai-1  | 2025-11-26T23:01:04.591Z [connector.service.command.js:37] [32minfo[39m: Connector service command success
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "url": "http://localhost:8088/api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/children?page=1&limit=20&sort_by=createdAtTimestamp&sort_order=desc",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "statusText": "OK"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:04.592Z [kb_controllers.js:899] [32minfo[39m: KB records retrieved successfully
+pipeshub-ai-1  | metadata: "65590061-7558-493e-bbc4-9c77a79419bf"
+pipeshub-ai-1  | 2025-11-26T23:01:04.592Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:01:04 +0000] "GET /api/v1/knowledgeBase/65590061-7558-493e-bbc4-9c77a79419bf/records HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:04.592Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198064579-15f617f4d9fc8d576500 StatusCode: 304 Method: GET Path: /65590061-7558-493e-bbc4-9c77a79419bf/records (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:01:25.349Z [kb_controllers.js:973] [32minfo[39m: Getting KB records
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "kbId": "65590061-7558-493e-bbc4-9c77a79419bf",
+pipeshub-ai-1  |   "userId": "6920b58c68baaf9103e51823",
+pipeshub-ai-1  |   "orgId": "6920b58c68baaf9103e51822",
+pipeshub-ai-1  |   "page": 1,
+pipeshub-ai-1  |   "limit": 20,
+pipeshub-ai-1  |   "sortBy": "createdAtTimestamp",
+pipeshub-ai-1  |   "sortOrder": "desc",
+pipeshub-ai-1  |   "requestId": "1764198085347-a9a9178027695a02e5c5"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:25.349Z [kb_controllers.js:1029] [32minfo[39m: getFolderContents: Calling Python backend
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "kbId": "65590061-7558-493e-bbc4-9c77a79419bf",
+pipeshub-ai-1  |   "folderId": "fcfa2861-5c98-47bc-9a64-476d23ae323b",
+pipeshub-ai-1  |   "hasFolderId": true,
+pipeshub-ai-1  |   "endpoint": "http://localhost:8088/api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b/children?page=1&limit=20&sort_by=createdAtTimestamp&sort_order=desc",
+pipeshub-ai-1  |   "endpointType": "folder/children",
+pipeshub-ai-1  |   "requestId": "1764198085347-a9a9178027695a02e5c5"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26 23:01:25,351 - connector_service - INFO - [connectors_main.py:391] - Middleware request: /api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b/children
+pipeshub-ai-1  | 2025-11-26 23:01:25,352 - connector_service - INFO - [connectors_main.py:407] - Call Next
+pipeshub-ai-1  | 2025-11-26 23:01:25,354 - connector_service - INFO - [kb_service.py:1568] - ­ƒöì Getting folder fcfa2861-5c98-47bc-9a64-476d23ae323b children with pagination (page 1, limit 20)
+pipeshub-ai-1  | 2025-11-26 23:01:25,356 - connector_service - INFO - [base_arango_service.py:7856] - ­ƒöì Checking permissions for user 19a32012-9fd7-49f9-909b-91f4fcd09bec on KB 65590061-7558-493e-bbc4-9c77a79419bf
+pipeshub-ai-1  | 2025-11-26 23:01:25,357 - connector_service - INFO - [base_arango_service.py:7879] - Ô£à Found permission: user 19a32012-9fd7-49f9-909b-91f4fcd09bec has role 'OWNER' on KB 65590061-7558-493e-bbc4-9c77a79419bf
+pipeshub-ai-1  | 2025-11-26 23:01:25,361 - connector_service - INFO - [base_arango_service.py:11003] - Ô£à Retrieved folder children with folders_first pagination: 1 items
+pipeshub-ai-1  | 2025-11-26 23:01:25,361 - connector_service - INFO - [kb_service.py:1655] - Ô£à Folder children retrieved: 0 folders, 1 records
+pipeshub-ai-1  | INFO:     127.0.0.1:56096 - "GET /api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b/children?page=1&limit=20&sort_by=createdAtTimestamp&sort_order=desc HTTP/1.1" 200 OK
+pipeshub-ai-1  | 2025-11-26T23:01:25.362Z [connector.service.command.js:37] [32minfo[39m: Connector service command success
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "url": "http://localhost:8088/api/v1/kb/65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b/children?page=1&limit=20&sort_by=createdAtTimestamp&sort_order=desc",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "statusText": "OK"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:25.364Z [kb_controllers.js:1038] [32minfo[39m: getFolderContents: Python response received
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "kbId": "65590061-7558-493e-bbc4-9c77a79419bf",
+pipeshub-ai-1  |   "folderId": "fcfa2861-5c98-47bc-9a64-476d23ae323b",
+pipeshub-ai-1  |   "statusCode": 200,
+pipeshub-ai-1  |   "hasData": true,
+pipeshub-ai-1  |   "requestId": "1764198085347-a9a9178027695a02e5c5"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:25.364Z [kb_controllers.js:1047] [32minfo[39m: getFolderContents: KB records retrieved successfully
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "kbId": "65590061-7558-493e-bbc4-9c77a79419bf",
+pipeshub-ai-1  |   "folderId": "fcfa2861-5c98-47bc-9a64-476d23ae323b",
+pipeshub-ai-1  |   "requestId": "1764198085347-a9a9178027695a02e5c5"
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:25.365Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:01:25 +0000] "GET /api/v1/knowledgeBase/65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:25.365Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198085347-a9a9178027695a02e5c5 StatusCode: 304 Method: GET Path: /65590061-7558-493e-bbc4-9c77a79419bf/folder/fcfa2861-5c98-47bc-9a64-476d23ae323b (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:01:41.332Z [validation.middleware.js:49] [31merror[39m: Validation failed
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "path": "/stream",
+pipeshub-ai-1  |   "method": "POST",
+pipeshub-ai-1  |   "errors": [
+pipeshub-ai-1  |     {
+pipeshub-ai-1  |       "field": "body.filters.kb",
+pipeshub-ai-1  |       "message": "Expected array, received object",
+pipeshub-ai-1  |       "code": "INVALID_TYPE",
+pipeshub-ai-1  |       "value": ""
+pipeshub-ai-1  |     }
+pipeshub-ai-1  |   ]
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:41.333Z [error.middleware.utils.js:73] [31merror[39m: Application error
+pipeshub-ai-1  | metadata: {
+pipeshub-ai-1  |   "error": {
+pipeshub-ai-1  |     "name": "ValidationError",
+pipeshub-ai-1  |     "code": "VALIDATION_ERROR",
+pipeshub-ai-1  |     "statusCode": 400,
+pipeshub-ai-1  |     "message": "Validation failed",
+pipeshub-ai-1  |     "metadata": {
+pipeshub-ai-1  |       "errors": [
+pipeshub-ai-1  |         {
+pipeshub-ai-1  |           "field": "body.filters.kb",
+pipeshub-ai-1  |           "message": "Expected array, received object",
+pipeshub-ai-1  |           "code": "INVALID_TYPE",
+pipeshub-ai-1  |           "value": ""
+pipeshub-ai-1  |         }
+pipeshub-ai-1  |       ]
+pipeshub-ai-1  |     },
+pipeshub-ai-1  |     "timestamp": {},
+pipeshub-ai-1  |     "stack": "ValidationError: Validation failed\n    at ValidationMiddleware.<anonymous> (/app/backend/dist/libs/middlewares/validation.middleware.js:48:45)\n    at Generator.throw (<anonymous>)\n    at rejected (/app/backend/dist/libs/middlewares/validation.middleware.js:6:65)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+pipeshub-ai-1  |     "errors": "[Circular]"
+pipeshub-ai-1  |   },
+pipeshub-ai-1  |   "context": {
+pipeshub-ai-1  |     "request": {
+pipeshub-ai-1  |       "method": "POST",
+pipeshub-ai-1  |       "path": "/api/v1/conversations/stream",
+pipeshub-ai-1  |       "query": {},
+pipeshub-ai-1  |       "params": {},
+pipeshub-ai-1  |       "ip": "::ffff:172.20.0.1",
+pipeshub-ai-1  |       "headers": {
+pipeshub-ai-1  |         "host": "localhost:3000",
+pipeshub-ai-1  |         "connection": "keep-alive",
+pipeshub-ai-1  |         "content-length": "282",
+pipeshub-ai-1  |         "sec-ch-ua-platform": "\"Windows\"",
+pipeshub-ai-1  |         "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+pipeshub-ai-1  |         "accept": "text/event-stream",
+pipeshub-ai-1  |         "sec-ch-ua": "\"Chromium\";v=\"142\", \"Brave\";v=\"142\", \"Not_A Brand\";v=\"99\"",
+pipeshub-ai-1  |         "content-type": "application/json",
+pipeshub-ai-1  |         "sec-ch-ua-mobile": "?0",
+pipeshub-ai-1  |         "sec-gpc": "1",
+pipeshub-ai-1  |         "accept-language": "en-GB,en;q=0.7",
+pipeshub-ai-1  |         "origin": "http://localhost:3000",
+pipeshub-ai-1  |         "sec-fetch-site": "same-origin",
+pipeshub-ai-1  |         "sec-fetch-mode": "cors",
+pipeshub-ai-1  |         "sec-fetch-dest": "empty",
+pipeshub-ai-1  |         "accept-encoding": "gzip, deflate, br, zstd"
+pipeshub-ai-1  |       }
+pipeshub-ai-1  |     }
+pipeshub-ai-1  |   }
+pipeshub-ai-1  | }
+pipeshub-ai-1  | 2025-11-26T23:01:41.333Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:01:41 +0000] "POST /api/v1/conversations/stream HTTP/1.1" 400 555 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:41.334Z [prometheus.middleware.js:24] [31merror[39m: Request error: RequestId: 1764198101324-f83b3ab7770bec8c3552 StatusCode: 400 Method: POST Path: /api/v1/conversations/stream (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26T23:01:41.339Z [app.js:209] [32minfo[39m: ::ffff:172.20.0.1 - - [26/Nov/2025:23:01:41 +0000] "GET /api/v1/configurationManager/ai-models/available/llm HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"
+pipeshub-ai-1  | 2025-11-26T23:01:41.339Z [prometheus.middleware.js:28] [32minfo[39m: Request success: RequestId: 1764198101335-ffa14e8e19e03893f018 StatusCode: 304 Method: GET Path: /ai-models/available/llm (User: 6920b58c68baaf9103e51823, Org: 6920b58c68baaf9103e51822)
+pipeshub-ai-1  | 2025-11-26 23:03:55,724 - connector_service - INFO - [base_arango_service.py:4964] - ­ƒÜÇ Getting all documents from collection: apps

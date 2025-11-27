@@ -21,6 +21,7 @@ from app.config.constants.arangodb import (
 )
 from app.config.constants.service import config_node_constants
 from app.connectors.services.base_arango_service import BaseArangoService
+from app.connectors.services.kb_filtering_service import KBFilteringService
 from app.exceptions.embedding_exceptions import EmbeddingModelCreationError
 from app.exceptions.fastapi_responses import Status
 from app.models.blocks import GroupType
@@ -239,7 +240,7 @@ class RetrievalService:
         queries: List[str],
         user_id: str,
         org_id: str,
-        filter_groups: Optional[Dict[str, List[str]]] = None,
+        filter_groups: Optional[Dict[str, any]] = None,
         limit: int = 20,
         virtual_record_ids_from_tool: Optional[List[str]] = None,
         arango_service: Optional[BaseArangoService] = None,
@@ -254,16 +255,42 @@ class RetrievalService:
 
             filter_groups = filter_groups or {}
 
-            kb_ids = filter_groups.get('kb', None) if filter_groups else None
+            # Parse KB filters - handle both old format (list of strings) and new format (dict)
+            kb_filter_data = filter_groups.get('kb', None) if filter_groups else None
+            kb_ids = []
+            folder_ids = []
+            file_ids = []
+            
+            if kb_filter_data:
+                if isinstance(kb_filter_data, dict):
+                    # New format: { kbIds: [...], folderIds: [...], fileIds: [...] }
+                    kb_ids = kb_filter_data.get('kbIds', [])
+                    folder_ids = kb_filter_data.get('folderIds', [])
+                    file_ids = kb_filter_data.get('fileIds', [])
+                elif isinstance(kb_filter_data, list):
+                    # Old format: list of KB IDs (backward compatibility)
+                    kb_ids = kb_filter_data
+            
             # Convert filter_groups to format expected by get_accessible_records
             arango_filters = {}
             if filter_groups:  # Only process if filter_groups is not empty
                 for key, values in filter_groups.items():
+                    if key == 'kb':
+                        # Skip KB filters here, handled separately above
+                        continue
                     # Convert key to match collection naming
                     metadata_key = (
                         key.lower()
                     )  # e.g., 'departments', 'categories', etc.
                     arango_filters[metadata_key] = values
+            
+            # Pass KB filters to get_accessible_records
+            if kb_ids:
+                arango_filters['kb_ids'] = kb_ids
+            if folder_ids:
+                arango_filters['folder_ids'] = folder_ids
+            if file_ids:
+                arango_filters['file_ids'] = file_ids
 
             init_tasks = [
                 self._get_accessible_records_task(user_id, org_id, filter_groups, self.arango_service),
@@ -524,7 +551,18 @@ class RetrievalService:
                 else:
                     self.logger.warning(f"Filtering out result with incomplete metadata. Virtual ID: {metadata.get('virtualRecordId')}, Missing fields: {[f for f in required_fields if f not in metadata]}")
 
-            search_results = complete_results
+            # Phase 4: Security Validation - Ensure returned records match selected resources
+            validated_results = complete_results
+            if folder_ids or file_ids or kb_ids:
+                validated_results = self._validate_filtered_results(
+                    complete_results,
+                    record_id_to_record_map,
+                    folder_ids,
+                    file_ids,
+                    kb_ids
+                )
+            
+            search_results = validated_results
             if search_results or records:
                 response_data = {
                     "searchResults": search_results,
@@ -535,10 +573,14 @@ class RetrievalService:
                 }
 
                 # Add KB filtering info to response if KB filtering was applied
-                if kb_ids:
+                if kb_ids or folder_ids or file_ids:
                     response_data["appliedFilters"] = {
                         "kb": kb_ids,
-                        "kb_count": len(kb_ids)
+                        "kb_count": len(kb_ids),
+                        "folders": folder_ids,
+                        "folder_count": len(folder_ids),
+                        "files": file_ids,
+                        "file_count": len(file_ids),
                     }
 
                 return response_data
